@@ -1,0 +1,41 @@
+/**
+ * 重置mui的样式
+ */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background-color: #efeff4;
+}
+header.mui-bar.mui-bar-nav,
+nav.mui-bar.mui-bar-tab
+{
+	background-color: rgba(80, 173, 29, .6);
+}
+body nav.mui-bar .mui-tab-item.mui-active{
+	background-color: rgba(80, 173, 29, .8);
+}
+nav .mui-tab-item span,
+body nav.mui-bar .mui-tab-item.mui-active
+{
+	color:#FFFFFF;
+}
+header.mui-bar.mui-bar-nav h1,
+header span,
+header a,
+header a.active
+{
+	font-size: 18px;
+	color: #ffffff;
+}
+.mui-bar .mui-icon:active{
+	opacity: 1;
+	color: #50ad1d;
+}
+/**/

@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的订单</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.order-list{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				font-size: 12px;
+    			background: #FFFFFF;
+    			margin: 0px;
+    			padding: 0px;
+			}
+			.order-list .select{
+				border-bottom: 2px solid red;
+    			color: red;
+			}
+			.order-list li{
+				float: left;
+				width: 25%;
+				text-align: center;
+				list-style:none;
+				color: #666666;
+			}
+			.order-btn{
+				height: 40px;
+				width: 100%;
+				border-top: 1px solid #e5e5e5;
+			}
+			.order-content{
+				text-align: right;
+				padding-right: 20px;
+				line-height: 30px;
+				height: 30px;
+				width: 100%;
+			}
+			.order-img{
+				width: 16px;
+				height: 16px;
+				position: absolute;
+				z-index: 9;
+				top: 6px;
+				left: 6px;
+			}
+			.order-info{
+				margin-top: 4px;
+				position: relative;
+			}
+			.white{
+				background: #FFFFFF;
+			}
+			.font12{
+				font-size: 12px;
+			}
+			.mui-table-view-cell>a:not(.mui-btn) {
+			    margin: -16px -15px;
+			    padding-left: 34px;
+			}
+			.mui-card-footer, .mui-card-header{
+				min-height: 30px;
+			}
+			.mui-card-footer .mui-card-link, .mui-card-header .mui-card-link{
+				height: 30px;
+				line-height: 30px;
+			}
+			.mui-card-footer:before, .mui-card-header:after{
+				height: 0px;
+			}
+			.mui-table-view:after{
+				height: 0px;
+			}
+			.mui-table-view-cell:after{
+				left: 0px;
+			}
+			.mui-table-view:before{
+				height: 0px;
+			}
+			.c-666666{
+				color: #666666;
+			}
+			.b-f9f9f9{
+				background: #f9f9f9;
+			}
+			.c-333333{
+				color: #333333;
+			}
+			.padding-left-0{
+				padding-left: 0px;
+			}
+			.mui-table-view .mui-media-object {
+			    line-height: 50px;
+			    max-width: 56px;
+			    height: 50px;
+			}
+			.mui-table-view {
+			    background-color: #F9F9F9;
+			}
+			.mui-table-view-cell>a:not(.mui-btn) {
+			    padding-left: 28px;
+			}
+			.font14{
+				font-size: 14px;
+			}
+			.font16{
+				font-size: 16px;
+			}
+			.red{
+				color: red;
+			}
+			input[type=reset]{
+				margin-top: 3px;
+				float: right;
+   				margin-right: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<header class="mui-bar mui-bar-nav" id="header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">我的订单</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="muiContent">
+			<ul class="order-list">
+				<li class="select">未支付</li>
+				<li>待发货</li>
+				<li>待签收</li>
+				<li>已签收</li>
+			</ul>
+			<div class="order-info">
+				<div class="order-img">
+					<img src="../images/store.png" width="20" height="20" alt="" />
+				</div>
+				<div class="mui-table-view-cell white font12">
+					<a class="mui-navigate-right">
+						绿色蔬菜
+					</a>
+				</div>
+				<div class="b-f9f9f9">
+					<div class="mui-card-footer font12">
+						<a class="mui-card-link c-666666">订单号:180324869520</a>
+						<a class="mui-card-link c-333333">未支付</a>
+					</div>
+					<div class="mui-table-view">
+						<div class="mui-table-view-cell mui-media padding-left-0">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+								<div class="mui-media-body">
+									<span class="font14">大白菜/1000g</span>
+									<div class="mui-ellipsis red">
+										<span class="font14">¥2.56</span>
+										<span class="mui-pull-right font12 c-666666">数量:x1</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="white font12 order-content">
+					共1件商品 应付款：<span class="font16">¥2.56</span>
+				</div>
+				<div class="order-btn white font12">
+					<input type="reset" value="删除订单">
+					<input type="reset" value="订单失效">
+				</div>
+			</div>
+			
+			<div class="order-info">
+				<div class="order-img">
+					<img src="../images/store.png" width="20" height="20" alt="" />
+				</div>
+				<div class="mui-table-view-cell white font12">
+					<a class="mui-navigate-right">
+						绿色蔬菜
+					</a>
+				</div>
+				<div class="b-f9f9f9">
+					<div class="mui-card-footer font12">
+						<a class="mui-card-link c-666666">订单号:180324869520</a>
+						<a class="mui-card-link c-333333">未支付</a>
+					</div>
+					<div class="mui-table-view">
+						<div class="mui-table-view-cell mui-media padding-left-0">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+								<div class="mui-media-body">
+									<span class="font14">大白菜/1000g</span>
+									<div class="mui-ellipsis red">
+										<span class="font14">¥2.56</span>
+										<span class="mui-pull-right font12 c-666666">数量:x1</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="white font12 order-content">
+					共1件商品 应付款：<span class="font16">¥2.56</span>
+				</div>
+				<div class="order-btn white font12">
+					<input type="reset" value="删除订单">
+					<input type="reset" value="订单失效">
+				</div>
+			</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/comm.js"></script>
+		<script type="text/javascript">
+			
+			mui.plusReady(function() {
+				// 设置沉浸式导航
+				COM.biz.setImmersed();
+			});
+			
+			
+		</script>
+	</body>
+
+</html>

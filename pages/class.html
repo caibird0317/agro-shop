@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>分类</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/comm.css" />
+		<style>
+			.mui-row.mui-fullscreen>[class*="mui-col-"] {
+				height: 84%;
+			}
+			
+			.pro-title-list,
+			.mui-control-content {
+				overflow-y: auto;
+				/*border-top: 1px solid #c8c7cc;*/
+				height: 100%;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: 50px;
+				width: 100%;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item,
+			.mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item.mui-active {
+				border: none;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				background-color: #FFFFFF;
+				color: #50ad1d;
+				border: none;
+				margin-left: 1px;
+				border-left: 4px solid #50ad1d !important;
+			}
+			
+			.pro-content-list {
+				border-left: 1px solid #c8c7cc;
+				box-shadow: -1px 0px 4px #c8c7cc;
+			}
+			
+			.class-top-pro,
+			.class-bottom-pro {
+				left: 0px;
+				height: 8%;
+				width: 100%;
+				color: #010;
+				z-index: 11;
+			}
+			
+			.class-top-pro {
+				position: relative;
+				top: 0px;
+			}
+			
+			.class-bottom-pro {
+				position: fixed;
+				bottom: 0px;
+			}
+			
+			.pro-notice:before {
+				content: '';
+				display: inline-block;
+				width: 50px;
+				height: 30px;
+				background-image: url(../images/notice.png);
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+			
+			.pro-notice {
+				height: 100%;
+				overflow: hidden;
+				white-space: nowrap;
+			}
+			/*重置图片大小*/
+			.mui-table-view .mui-media-object{
+			    line-height: 62px;
+			    max-width: 62px;
+			    height: 62px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="header">
+			<span class="mui-icon mui-pull-left"></span>
+			<h1 class="mui-title">快速搭配</h1>
+		</header>
+		<div class="mui-content mui-fullscreen mui-row" id="muiContent">
+
+			<div class="mui-row class-top-pro v-center">
+				<div class="mui-col-xs-4 mui-text-center ">
+					<span class="mui-icon mui-icon-search"></span>
+					<span>搜索</span>
+				</div>
+				<div class="mui-col-xs-8" style="height:100%">
+					<div class="pro-notice v-center">
+						<div class="marquee v-center">
+							<!--TODO 替换marquee标签-->
+							<marquee behavior="scroll" direction="left">
+								15天免费恰巨型活动优惠开始了，点我了解详情。
+							</marquee>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pro-title-list mui-col-xs-4">
+				<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+					<!--JS填充分类-->
+				</div>
+			</div>
+			<div id="segmentedControlContents" class="pro-content-list mui-col-xs-8">
+				<!--JS填充每个分类下的内容-->
+			</div>
+			<div class="class-bottom-pro v-center">
+				<div class="chose-pro-status">已选 0份，总计 0.0元 选好了</div>
+				<!--<div class="">搜索框</div>-->
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../mock/class.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			mui.plusReady(function() {
+				// 设置沉浸式导航
+				COM.biz.setImmersed();
+			});
+			var controls = document.getElementById("segmentedControls");
+			var contents = document.getElementById("segmentedControlContents");
+			initPage(classMock.list)
+			function initPage(data) {
+				var titleArr = [];
+				var contentArr = [];
+				mui.each(data,function(i,item){
+					titleArr.push([
+						'<a class="mui-control-item" href="#content' + i + '" data-id="',item.id,'">',item.title,'</a>'
+					].join(""));
+					//加载每个子项的内容
+					contentArr.push([
+						'<div id="content' , i ,'" class="mui-control-content"><ul class="mui-table-view">'
+					].join(""));
+					
+					var tempArr = [];
+					mui.each(item.childlist,function(j,o){
+						tempArr.push([
+							'<li class="mui-table-view-cell mui-media">',
+								'<a href="javascript:;">',
+						            '<img class="mui-media-object mui-pull-left" src="../images/logo.png">',
+						            '<div class="mui-media-body mui-row">',
+						                '<div class="mui-col-sm-6 font-14">',
+						                	'<div>',o.name,'</div>',
+						                	'<div>',o.unit,'</div>',
+						                	'<div>',o.less,'</div>',
+						                '</div>',
+						            '</div>',
+						        '</a>',
+							'</li>'
+						].join(""))
+					})
+					contentArr.push(tempArr.join(""));
+					contentArr.push('</ul></div>');
+				});
+				controls.innerHTML = titleArr.join("")
+				contents.innerHTML = contentArr.join('');
+				//默认选中第一个
+				controls.querySelector('.mui-control-item').classList.add('mui-active');
+				contents.querySelector('.mui-control-content').classList.add('mui-active');
+			}
+		</script>
+	</body>
+
+</html>

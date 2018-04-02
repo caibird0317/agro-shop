@@ -1,0 +1,162 @@
+{
+	"pages/comm.html": {
+		"resources": [
+			"pages/shouye.html",
+			"pages/home.html",
+			"pages/class.html"
+		],
+		"refer": [
+			"pages/shouye.html",
+			"pages/my.html",
+			"pages/find.html",
+			"pages/home.html",
+			"pages/class.html",
+			"pages/cart.html"
+		]
+	},
+	"login.html": {
+		"refer": [
+			"reg.html",
+			"pages/comm.html",
+			"pages/home.html",
+			"pages/inactive.html"
+		],
+		"resources": [
+			"fonts/mui.ttf"
+		]
+	},
+	"pages/home.html": {
+		"refer": [
+			"pages/apply_borrowed.html",
+			"pages/my_borrowed.html",
+			"pages/repayment_record.html",
+			"pages/identity_info.html",
+			"pages/inactive.html",
+			"pages/my_syslist.html",
+			"pages/my_message.html"
+		],
+		"resources": []
+	},
+	"pages/apply_borrowed.html": {
+		"refer": [
+			"pages/my_borrowed.html"
+		],
+		"resources": []
+	},
+	"pages/find.html": {
+		"refer": [
+			"pages/prize.html",
+			"pages/my_message.html"
+		],
+		"resources": []
+	},
+	"pages/my_borrowed.html": {
+		"refer": [
+			"pages/my_borrowed_detail.html"
+		],
+		"resources": []
+	},
+	"pages/repayment_record.html": {
+		"refer": [
+			"pages/repayment_record_detail.html"
+		],
+		"resources": []
+	},
+	"pages/my.html": {
+		"refer": [
+			"pages/my_faceback.html",
+			"login.html",
+			"pages/my_syslist.html",
+			"pages/my_reset_pwd.html",
+			"pages/my_message.html"
+		],
+		"resources": []
+	},
+	"pages/my_syslist.html": {
+		"refer": [
+			"pages/my_syslist_detail.html"
+		],
+		"resources": []
+	},
+	"pages/identity_info.html": {
+		"refer": [
+			"pages/contact_info.html",
+			"pages/unit_info.html"
+		],
+		"resources": []
+	},
+	"pages/contact_info.html": {
+		"refer": [
+			"pages/more_info.html",
+			"pages/unit_info.html"
+		],
+		"resources": []
+	},
+	"pages/unit_info.html": {
+		"refer": [
+			"pages/more_info.html",
+			"pages/home_iswork.html",
+			"pages/student_info.html"
+		],
+		"resources": []
+	},
+	"pages/inactive.html": {
+		"refer": [
+			"pages/identity_info.html",
+			"pages/comm.html",
+			"pages/contact_info.html",
+			"pages/unit_info.html",
+			"pages/home_iswork.html",
+			"pages/more_info.html",
+			"pages/student_info.html"
+		],
+		"resources": []
+	},
+	"pages/more_info.html": {
+		"refer": [
+			"pages/activation.html",
+			"pages/bank_account.html",
+			"pages/address.html",
+			"pages/qq.html",
+			"pages/weixin.html",
+			"pages/comm.html"
+		],
+		"resources": []
+	},
+	"pages/home_iswork.html": {
+		"refer": [
+			"pages/more_info.html"
+		],
+		"resources": []
+	},
+	"pages/my_borrowed_detail.html": {
+		"refer": [
+			"pages/repayment_record.html"
+		],
+		"resources": []
+	},
+	"pages/student_info.html": {
+		"refer": [
+			"pages/more_info.html"
+		],
+		"resources": []
+	},
+	"pages/my_reset_pwd.html": {
+		"refer": [
+			"login.html"
+		],
+		"resources": []
+	},
+	"pages/my_message.html": {
+		"refer": [
+			"pages/my_message_detail.html"
+		],
+		"resources": []
+	},
+	"reg.html": {
+		"refer": [
+			"agreeMent.html"
+		],
+		"resources": []
+	}
+}
