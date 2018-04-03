@@ -80,10 +80,45 @@
 				white-space: nowrap;
 			}
 			/*重置图片大小*/
-			.mui-table-view .mui-media-object{
-			    line-height: 62px;
-			    max-width: 62px;
-			    height: 62px;
+			
+			.mui-table-view .mui-media-object {
+				line-height: 56px;
+				max-width: 56px;
+				min-width: 56px;
+				height: 56px;
+				border-radius: 4px;
+			}
+			
+			.mui-table-view-cell>a:not(.mui-btn) {
+				margin: -16px -20px -20px;
+			}
+			/*重置列表的padding*/
+			.mui-table-view-cell{
+				padding: 10px 5px;
+			}
+			.mui-table-view .mui-media-object.mui-pull-left{
+				margin-right: 4px;	
+			}
+			/*重置选择按钮的*/
+			.mui-numbox{
+			    width: 90px;
+			    height: 35px;
+			    padding: 0 30px;
+			}
+			.mui-numbox [class*=btn-numbox],
+			.mui-numbox [class*=numbox-btn]
+			{
+				width: 30px;	
+			}
+			.pro-title-name{
+				font-size:18px;
+				font-weight: 500;
+			}
+			.pro-unit-number,
+			.pro-less-number
+			{
+				font-size: 14px;
+				color:#E23C26;
 			}
 		</style>
 	</head>
@@ -96,11 +131,11 @@
 		<div class="mui-content mui-fullscreen mui-row" id="muiContent">
 
 			<div class="mui-row class-top-pro v-center">
-				<div class="mui-col-xs-4 mui-text-center ">
+				<div class="mui-col-xs-3 mui-text-center ">
 					<span class="mui-icon mui-icon-search"></span>
 					<span>搜索</span>
 				</div>
-				<div class="mui-col-xs-8" style="height:100%">
+				<div class="mui-col-xs-9" style="height:100%">
 					<div class="pro-notice v-center">
 						<div class="marquee v-center">
 							<!--TODO 替换marquee标签-->
@@ -111,12 +146,12 @@
 					</div>
 				</div>
 			</div>
-			<div class="pro-title-list mui-col-xs-4">
+			<div class="pro-title-list mui-col-xs-3">
 				<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
 					<!--JS填充分类-->
 				</div>
 			</div>
-			<div id="segmentedControlContents" class="pro-content-list mui-col-xs-8">
+			<div id="segmentedControlContents" class="pro-content-list mui-col-xs-9">
 				<!--JS填充每个分类下的内容-->
 			</div>
 			<div class="class-bottom-pro v-center">
@@ -125,6 +160,8 @@
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../libs/lazyload/mui.lazyload.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../libs/lazyload/mui.lazyload.img.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../mock/class.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -138,32 +175,40 @@
 			var controls = document.getElementById("segmentedControls");
 			var contents = document.getElementById("segmentedControlContents");
 			initPage(classMock.list)
+
 			function initPage(data) {
 				var titleArr = [];
 				var contentArr = [];
-				mui.each(data,function(i,item){
+				mui.each(data, function(i, item) {
 					titleArr.push([
-						'<a class="mui-control-item" href="#content' + i + '" data-id="',item.id,'">',item.title,'</a>'
+						'<a class="mui-control-item" href="#content' + i + '" data-id="', item.id, '">', item.title, '</a>'
 					].join(""));
 					//加载每个子项的内容
 					contentArr.push([
-						'<div id="content' , i ,'" class="mui-control-content"><ul class="mui-table-view">'
+						'<div id="content', i, '" class="mui-control-content"><ul class="mui-table-view">'
 					].join(""));
-					
+
 					var tempArr = [];
-					mui.each(item.childlist,function(j,o){
+					mui.each(item.childlist, function(j, o) {
 						tempArr.push([
 							'<li class="mui-table-view-cell mui-media">',
-								'<a href="javascript:;">',
-						            '<img class="mui-media-object mui-pull-left" src="../images/logo.png">',
-						            '<div class="mui-media-body mui-row">',
-						                '<div class="mui-col-sm-6 font-14">',
-						                	'<div>',o.name,'</div>',
-						                	'<div>',o.unit,'</div>',
-						                	'<div>',o.less,'</div>',
-						                '</div>',
-						            '</div>',
-						        '</a>',
+							'<img class="mui-media-object mui-pull-left lazy-load" ',j<8?["src=",o.url].join(""):["data-lazyload=",o.url].join(""),'>',
+							'<div class="mui-media-body">',
+							'<div class="mui-row pro-title-name"><div class="mui-col-sm-12">', o.name, '</div></div>',
+							'<div class="mui-row  v-center">',
+							'<div class="mui-col-sm-4">',
+							'<div class="pro-unit-number">', o.unit, '</div>',
+							'<div class="pro-less-number">还剩', o.less, '份</div>',
+							'</div>',
+							'<div class="mui-col-sm-8" style="margin:0 auto;">',
+							'<div class="mui-numbox" data-numbox-step="1" data-numbox-min="0" data-numbox-max="', o.less,'">',
+							  '<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>',
+							  '<input class="mui-numbox-input font-14" type="number" readonly="readonly"/>',
+							  '<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>',
+							'</div>',
+							'</div>',
+							'</div>',
+							'</div>',
 							'</li>'
 						].join(""))
 					})
@@ -175,6 +220,9 @@
 				//默认选中第一个
 				controls.querySelector('.mui-control-item').classList.add('mui-active');
 				contents.querySelector('.mui-control-content').classList.add('mui-active');
+				mui('#segmentedControlContents').imageLazyload({
+					placeholder:"../images/60x60.gif"
+				});
 			}
 		</script>
 	</body>
