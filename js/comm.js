@@ -52,16 +52,16 @@ window.COM = window.COM || {};
 COM.Const = (function() {
 
 	return {
-		// API接口地址
+		// API接口地址预留
 		SERVER_SRC: "http://xfd.zzlsnet.cn/xfd/app/",
-		// 图片服务器地址
+		// 图片服务器地址预留
 		IMG_SERVER_SRC: "http://xfd.zzlsnet.cn",
-		// websocket地址
+		// websocket地址预留
 		WEBSOCKET_SRC: "ws://xfd.zzlsnet.cn:9001",
 		//是否显示调试日志
 		IS_DEVELOP_ENVIRONMENT: true,
 		DATE_NORMAL_FORMAT: "yyyy年MM月dd日 HH:mm:ss",
-		NO_DATA_TIPS: "~梦想要等贷~",
+		NO_DATA_TIPS: "~暂无数据~",
 		AJAX_ERROR_TIPS: "您的网络有些问题",
 		LOADING_TIPS: "数据加载中...",
 		DEFAULT_BUSY_TEXT: "服务器繁忙，请稍后重试！"
@@ -225,40 +225,6 @@ COM.string = (function() {
 		breakLineToArray: breakLineToArray
 	}
 })();
-COM.map = {
-	//还款类型map
-	repayTypeMap:{
-		"0": "按日还款",
-		"1": "按月还款",
-		"2": "按年还款"
-	},
-	//还款方式map
-	repayModeMap: {
-		"0": "本息同还"
-	},
-	// 利率类型MAP
-	interestTypeMap:{
-		"0": "按日计息",
-		"1": "按月计息",
-		"2": "按季计息",
-		"3": "按年计息"
-	},
-	// 借款状态
-	loanStatus:{
-		"0": "审核中",
-		"1": "已生效",
-		"-1": "未通过",
-		"-2": "逾期",
-		"2": "已完成"
-	},
-	// 认证状态
-	inactiveStatusMap: {
-		"0": "未认证",
-		"1": "认证中",
-		"2": "已认证",
-		"-1": "认证失败"
-	}
-};
 // 数字模块
 COM.number = (function() {
 	/**
@@ -826,6 +792,29 @@ COM.biz = (function() {
 			'</div>'
 		].join("")
 	};
+	var creatProIntro = function (options){
+		var setting = mui.extend({
+			"url":"",
+			"title":"",
+			"text":""
+		},options);
+		var div = document.createElement('div');
+		div.className = "modal-box";
+		div.id = "proIntroModal";
+		div.innerHTML = [
+			'<div class="modal-container">',
+				'<div class="modal-img">',
+				'<img src="',setting.url,'"/>',
+			'</div>',
+			'<div class="modal-title">',setting.title,'</div>',
+			'<div class="modal-content">',
+				setting.text,
+			'</div>',
+		'</div>'
+		].join("");
+		document.body.appendChild(div);
+	}
+	
 	return {
 		// html输入编码
 		encodeHtmlTag: encodeHtmlTag,
@@ -850,7 +839,9 @@ COM.biz = (function() {
 		//函数节流
 		throttle:throttle,
 		// 没有数据
-		noDataHtml:noDataHtml
+		noDataHtml:noDataHtml,
+		// 创建产品介绍层的对象
+		creatProIntro:creatProIntro
 	}
 })();
 

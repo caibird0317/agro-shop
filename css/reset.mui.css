@@ -14,9 +14,10 @@ body {
 	background-color: #efeff4;
 }
 header.mui-bar.mui-bar-nav,
-nav.mui-bar.mui-bar-tab
+nav.mui-bar.mui-bar-tab,
+.yck-self-btn
 {
-	background-color: rgba(80, 173, 29, .6);
+	background-color: #90C873;
 }
 body nav.mui-bar .mui-tab-item.mui-active{
 	background-color: rgba(80, 173, 29, .8);
@@ -38,4 +39,3 @@ header a.active
 	opacity: 1;
 	color: #50ad1d;
 }
-/**/

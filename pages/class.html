@@ -50,7 +50,9 @@
 				left: 0px;
 				height: 8%;
 				width: 100%;
-				color: #010;
+				color: #666;
+				background: #F5F5F5;
+				border-top: 1px solid #c8c7cc;
 				z-index: 11;
 			}
 			
@@ -62,6 +64,9 @@
 			.class-bottom-pro {
 				position: fixed;
 				bottom: 0px;
+				color: rgba(80, 173, 29, .8);
+				font-size: 16px;
+				background: #F5F5F5;
 			}
 			
 			.pro-notice:before {
@@ -154,28 +159,47 @@
 			<div id="segmentedControlContents" class="pro-content-list mui-col-xs-9">
 				<!--JS填充每个分类下的内容-->
 			</div>
-			<div class="class-bottom-pro v-center">
-				<div class="chose-pro-status">已选 0份，总计 0.0元 选好了</div>
-				<!--<div class="">搜索框</div>-->
+			<div class="class-bottom-pro v-center mui-row">
+				<div class="mui-col-xs-8 mui-text-center">
+					已选：
+					<span id="totalChose">0</span>份
+					&nbsp;&nbsp;&nbsp;&nbsp; 总计：¥ 
+					<span id="totalPayMoney">0.0</span>元
+				</div>
+				<div class="mui-col-xs-4 mui-text-center">
+					<button type="button" id="choseOver" class="mui-btn mui-btn-success yck-self-btn border-none">选好了</button>
+				</div>
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script src="../libs/lazyload/mui.lazyload.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../libs/lazyload/mui.lazyload.img.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/until.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../mock/class.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			var controls = document.getElementById("segmentedControls");
+			var contents = document.getElementById("segmentedControlContents");
+			var choseOver = document.getElementById("choseOver");
 			mui.init({
 				swipeBack: true //启用右滑关闭功能
 			});
+			//H5+能力在此处体现
 			mui.plusReady(function() {
 				// 设置沉浸式导航
 				COM.biz.setImmersed();
+				
+				//去购物车的页面
+				choseOver.addEventListener("tap",function(){
+					//获得主页面的webview
+				    var main = plus.webview.currentWebview().parent();
+				    //触发主页面的gocart事件 
+				    mui.fire(main,'gocart');
+				})
 			});
-			var controls = document.getElementById("segmentedControls");
-			var contents = document.getElementById("segmentedControlContents");
 			initPage(classMock.list)
-
+			
+			// 初始化产品列表
 			function initPage(data) {
 				var titleArr = [];
 				var contentArr = [];
@@ -192,7 +216,7 @@
 					mui.each(item.childlist, function(j, o) {
 						tempArr.push([
 							'<li class="mui-table-view-cell mui-media">',
-							'<img class="mui-media-object mui-pull-left lazy-load" ',j<8?["src=",o.url].join(""):["data-lazyload=",o.url].join(""),'>',
+							'<img class="mui-media-object mui-pull-left lazy-load" data-src="',o.url,'" data-name="',o.name,'" ',j<8?["src=",o.url].join(""):["data-lazyload=",o.url].join(""),'>',
 							'<div class="mui-media-body">',
 							'<div class="mui-row pro-title-name"><div class="mui-col-sm-12">', o.name, '</div></div>',
 							'<div class="mui-row  v-center">',
@@ -224,6 +248,17 @@
 					placeholder:"../images/60x60.gif"
 				});
 			}
+			//点击图片显示产品介绍
+			mui("#segmentedControlContents").on("tap",".lazy-load",function(){
+				var self = this;
+				var imgSrc = self.getAttribute("data-src");
+				var proTitle = self.getAttribute("data-name");
+				COM.biz.creatProIntro({
+					"url":imgSrc,
+					"title":proTitle,
+					"text": classDetail.products_intro
+				})
+			});
 		</script>
 	</body>
 
