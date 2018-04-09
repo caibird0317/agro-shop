@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>订单详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/comm.css"/>
+		<style type="text/css">
+			.font12{
+				font-size: 12px;
+			}
+			.font14{
+				font-size: 14px;
+			}
+			.red{
+				color: red;
+			}
+			.bg-white{
+				background: #FFFFFF;
+			}
+			.bg-red{
+				background-color: red!important;
+			}
+			.bg-333333{
+				background-color: #333333!important;
+			}
+			.c-666666{
+				color: #666666;
+			}
+			.padd-left-0{
+				padding: 11px 0px;
+			}
+			.margin-t-6{
+				margin-top:6px;
+			}
+			.fl50{
+				float: left;
+				width: 50%;
+			}
+			.both{
+				clear: both;
+			}
+			.mui-table-view .mui-media-object {
+			    line-height: 50px;
+			    max-width: 50px;
+			    height: 50px;
+			}
+			.mui-btn, button, input[type=button], input[type=reset], input[type=submit]{
+				color: #FFFFFF;
+			}
+			
+			.order-img{
+				width: 16px;
+				height: 16px;
+				position: absolute;
+				z-index: 9;
+				top: 6px;
+				left: 6px;
+			}
+			.order-title{
+				height:40px;
+				line-height: 40px;
+				font-size: 14px;
+				padding-left:6px;
+				border-bottom: 1px solid #e5e5e5;
+			}
+			.order-title img{
+				position: relative;
+				top: 5px;
+			}
+			.order-type{
+				height: 40px;
+				line-height: 40px;
+				font-size: 12px;
+				padding-left: 20px;
+			}
+			.order-info-list{
+				height: 36px;
+				line-height: 36px;
+				font-size: 12px;
+				padding-left: 20px;
+				border-bottom: 1px dashed #d5d5d5;
+			}
+			.order-text{
+				font-size: 12px;
+				background: #FFFFFF;
+				border-bottom: 1px dashed #d5d5d5;
+			}
+			.order-info-directory{
+				float: left;
+				width:80px;
+				padding-left: 20px;
+				padding-top: 8px;
+			}
+			.order-info-content{
+				float: left;
+				width: 70%;
+				padding-top: 8px;
+			}
+			.order-btn{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				margin-top: 10px;
+			}
+			.order-pay{
+				width: 80%;
+				margin-left: 10%;	
+			}
+			.order-money{
+				background: #FFFFFF;
+				padding: 0px 15px;
+				min-height: 35px;
+			}
+			.order-address{
+				height: 40px;
+				font-size: 12px;
+				padding-left: 20px;
+				margin-right: 8px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">订单详情</h1>
+		</header>
+		<div class="content mui-content" id="muiContent">
+			
+			<div class="bg-white">
+				<div class="order-title">
+					<img src="../images/store.png" width="20" height="20" />
+					<span>订单类型</span>
+				</div>
+				<div class="order-type">
+					<div class="fl50">订单类型：<span>实物订单</span></div>
+					<div class="fl50">订单状态：<span class="red">等待支付</span></div>
+				</div>
+			</div>
+			
+			<div class="bg-white margin-t-6">
+				<div class="order-title">
+					<img src="../images/store.png" width="20" height="20" />
+					<span>订单信息</span>
+				</div>
+				<div class="order-info-list">
+					订单号 : <span>1800000023893</span>
+				</div>
+				<div class="order-info-list">
+					订单总价: <span class="red">24.09</span>
+				</div>
+				<div class="order-info-list">
+					下单时间: <span>2018/4/11 11:10:17</span>
+				</div>
+				<div class="font12 bg-white">
+					<div class="order-info-directory">订单留言：</div>
+					<div class="order-info-content">
+						阿达阿达达瓦大大达娃哒哒哒阿达阿达达瓦大大达娃哒哒哒阿达阿达达瓦大大达娃哒哒哒
+					</div>
+				</div>
+				<div class="order-text both">
+					<div class="order-info-directory">支付说明：</div>
+					<div class="order-info-content">
+						阿达阿达达瓦大大达娃哒哒哒阿达阿达达瓦大大达娃哒哒哒阿达阿达达瓦大大达娃哒哒哒哒阿达阿达达瓦大大达娃哒哒哒哒阿达阿达达瓦大大达娃哒哒哒
+					</div>
+				</div>
+				<div class="order-text both">
+					<div class="order-info-directory">配送说明：</div>
+					<div class="order-info-content">
+						阿达阿达达瓦大大达娃哒哒哒阿达阿达达瓦大大达娃哒哒哒阿达阿达达瓦大大达娃哒哒哒
+					</div>
+				</div>
+				<div class="both"></div>
+			</div>
+			
+			<div class="order-btn">
+				<div class="fl50">
+					<input type="button" value="立即支付" class="order-pay bg-red" />
+				</div>
+				<div class="fl50">
+					<input type="button" value="取消支付" class="order-pay bg-333333" />
+				</div>
+			</div>
+			
+			<div class="bg-white order-title">
+				<img src="../images/store.png" width="20" height="20" />
+				<span>订单商品</span>
+			</div>
+			<div class="mui-table-view">
+				<div class="mui-table-view-cell mui-media">
+					<a href="javascript:;" class="padd-left-0">
+						<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+						<div class="mui-media-body">
+							<span class="font14">大白菜/1000g</span>
+							<div class="mui-ellipsis red margin-t-6">
+								<span class="font14">¥2.56</span>
+								<span class="mui-pull-right font12 c-666666">数量:x1</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="mui-table-view-cell mui-media">
+					<a href="javascript:;" class="padd-left-0">
+						<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+						<div class="mui-media-body">
+							<span class="font14">大白菜/1000g</span>
+							<div class="mui-ellipsis red margin-t-6">
+								<span class="font14">¥2.56</span>
+								<span class="mui-pull-right font12 c-666666">数量:x1</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="mui-table-view-cell mui-media">
+					<a href="javascript:;" class="padd-left-0">
+						<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+						<div class="mui-media-body">
+							<span class="font14">大白菜/1000g</span>
+							<div class="mui-ellipsis red margin-t-6">
+								<span class="font14">¥2.56</span>
+								<span class="mui-pull-right font12 c-666666">数量:x1</span>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="mui-card-footer font12 order-money">
+				<a class="mui-card-link red">会员余额：¥100.00</a>
+			</div>
+			<div class="mui-card-footer font12 order-money">
+				<a class="mui-card-link red">商品总价格：¥28.46</a>
+				<a class="mui-card-link red">应付款：¥28.46</a>
+			</div>
+			
+			<div class="bg-white margin-t-6">
+				<div class="order-title">
+					<img src="../images/store.png" width="20" height="20" />
+					<span>收件人信息</span>
+				</div>
+				<div class="order-type">
+					<div class="fl50">收件人：<span>张三</span></div>
+					<div class="fl50">手机：<span>18888888888</span></div>
+				</div>
+				<div class="order-address">
+					<div>详细地址：<span>长沙市雨花区芙蓉中路</span></div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			mui.plusReady(function() {
+				// 设置沉浸式导航
+				COM.biz.setImmersed();
+			});
+			
+			
+		</script>
+	</body>
+
+</html>

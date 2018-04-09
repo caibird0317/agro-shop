@@ -3,57 +3,198 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>购物车</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/comm.css"/>
 		<style type="text/css">
-			.modal-box{
+			.order-img{
+				width: 16px;
+				height: 16px;
 				position: absolute;
-			    z-index: 9999;
-			    top:0px;
-			    left:0px;
-			    width: 100%;
-			    height: 100%;
-			    background-color:rgba(0, 0, 0, 0.78);
+				z-index: 9;
+				top: 6px;
+				left: 6px;
 			}
-			.modal-container{
-				position: fixed;
-				height: 90%;
-				overflow-y: auto;
-				margin:13% 1% 5%;
-				background-color: #E5E5E5;
-				color: #929292;
-				border-radius: 8px;
+			.order-info{
+				margin-top: 4px;
+				position: relative;
 			}
-			.modal-img img{
-				width: 96%;
-				margin: 2%;
-				border-radius: 4px;
+			.font12{
+				font-size: 12px;
 			}
-			.modal-title{
-				font-size: 20px;
-				font-weight:600;
-				margin: 0px 8px;
-				padding-bottom: 8px;
-				border-bottom: 1px solid #929292;
-			}
-			.modal-content{
-				text-indent: 2em;
+			.font14{
 				font-size: 14px;
-				padding: 8px 4px;
+			}
+			.font16{
+				font-size: 16px;
+			}
+			.red{
+				color: red;
+			}
+			.c-333333{
+				color: #333333;
+			}
+			.c-666666{
+				color: #666666;
+			}
+			.c-999999{
+				color: #999999;
+			}
+			.margin-t-6{
+				margin-top: 6px;
+			}
+			.padd-t-6{
+				padding-top: 6px;
+			}
+			.padd-left-0{
+				padding: 11px 0px;
+			}
+			.mui-table-view .mui-media-object {
+			    line-height: 60px;
+			    max-width: 60px;
+			    height: 60px;
+			}
+			.mui-numbox{
+				height: 30px;
+				margin-top: 10px;
+				float: left;
+			}
+			.cart-del{
+				width: 40px;
+			    height: 22px;
+			    line-height: 22px;
+			    background: #999999;
+			    color: #FFFFFF;
+			    text-align: center;
+			    border-radius: 4px;
+			    margin-top: 16px;
+			}
+			.bor-bottom{
+				border-bottom: 1px solid #d5d5d5;
+			}
+			.mui-btn-blue, .mui-btn-primary, input[type=submit]{
+				width: 90%;
+			    margin-left: 5%;
+			    background: red;
+			    border: 0px;
+			    margin-top: 20px;
+			    height: 40px;
+			}
+			.mui-table-view-cell{
+				padding: 0px 10px;
+			}
+			.cart-title{
+				height:40px;
+				line-height: 40px;
+				font-size: 14px;
+				padding-left:6px;
+				border-bottom: 1px solid #e5e5e5;
+				background: #FFFFFF;
+			}
+			.cart-title img{
+				position: relative;
+				top:5px;
+			}
+			.cart-total{
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				background: #FFFFFF;
+				font-size: 14px;
+				text-align: right;
+				padding-right: 10px;
+			}
+			.cart-empty-info{
+				width: 80%;
+				height:260px;
+				text-align: center;
+				position: absolute;
+				top:50%;
+				left: 10%;
+				margin-top: -130px;
+			}
+			.cart-go{
+				width: 160px;
+				height: 34px;
+				border: 1px solid #000000;
+				border-radius: 6px;
+				line-height: 34px;
+				margin: 0 auto;
+				margin-top: 8px;
 			}
 		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav" id="header">
-			<span class="mui-icon mui-pull-left"></span>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">购物车</h1>
 		</header>
 		<div class="mui-content" id="muiContent">
-			
+			<div class="empty"  style="display: none;">
+				<div class="cart-empty-info">
+					<img src="../images/empty.png" alt="" />
+					<div class="font16 c-333333">购物车快饿瘪了TT</div>
+					<div class="font12 c-999999">主人快给我挑点宝贝吧</div>
+					<div class="cart-go">走，逛逛去</div>
+				</div>
+			</div>
+			<div class="goods">
+				<div class="cart-title">
+					<img src="../images/store.png" width="20" height="20" alt="" />
+					<span>购物车</span>
+				</div>
+				<div class="mui-table-view">
+					<div class="mui-table-view-cell">
+						<div class="bor-bottom padd-left-0">
+							<div class="font14 padd-t-6">螺丝椒/250g</div>
+							<div class="margin-t-6">
+								<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+								<div class="mui-media-body">
+									<span class="font14 red">单价：1.49</span>
+									<div class="mui-ellipsis red">
+										<div class="font14">
+											<div class="mui-numbox" data-numbox-min="1" data-numbox-max="9">
+												<button class="mui-btn mui-btn-numbox-minus" type="button" disabled="">-</button>
+												<input id="test" class="mui-input-numbox" type="number" value="1">
+												<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+											</div>
+										</div>
+										<div class="mui-pull-right font12 cart-del">删除</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bor-bottom padd-left-0">
+							<div class="font14 padd-t-6">螺丝椒/250g</div>
+							<div class="margin-t-6">
+								<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+								<div class="mui-media-body">
+									<span class="font14 red">单价：1.49</span>
+									<div class="mui-ellipsis red">
+										<div class="font14">
+											<div class="mui-numbox" data-numbox-min="1" data-numbox-max="9">
+												<button class="mui-btn mui-btn-numbox-minus" type="button" disabled="">-</button>
+												<input id="test" class="mui-input-numbox" type="number" value="1">
+												<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+											</div>
+										</div>
+										<div class="mui-pull-right font12 cart-del">删除</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cart-total">
+					订单总价：<span class="red">5.54</span>
+				</div>
+				
+				<input type="submit" value="去结算" id="account" />
+			</div>
+
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
@@ -61,6 +202,16 @@
 			mui.plusReady(function () {
 				// 设置沉浸式导航
 				COM.biz.setImmersed();
+			});
+			
+			var account = document.getElementById("account");
+			
+			//结算
+			account.addEventListener('tap',function(){
+				mui.openWindow({
+					url: "cart-account.html",
+					id: "cart-account.html"
+				})
 			});
 		</script>
 	</body>

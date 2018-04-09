@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>新建收货地址</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before{
+				font-size: 22px;
+			}
+			.mui-checkbox.mui-left input[type=checkbox], .mui-radio.mui-left input[type=radio]{
+				left: 10px;
+				top: 8px;
+			}
+			.mui-input-row label{
+				padding: 13px 15px;
+			}
+			.mui-checkbox.mui-left label, .mui-radio.mui-left label{
+				padding-left: 40px;
+			}
+			.font12{
+				font-size: 12px;
+			}
+			.font14{
+				font-size: 14px;
+			}
+			.c-333333 {
+			    color: #333333;
+			}
+			.c-666666{
+				color: #666666;
+			}
+			.f14 {
+			    font-size: 14px;
+			}
+			.margin-l-28 {
+			    margin-left: 28px;
+			}
+			.border-b-1{
+				border-bottom: 1px solid #e5e5e5;
+			}
+			.letter4{
+				letter-spacing: 4px;
+			}
+			.add-layel {
+			    width: 100%;
+			    height: 40px;
+			    line-height: 40px;
+			    padding-left: 12px;
+			    border-bottom: 1px solid #e5e5e5;
+			    background: #FFFFFF;
+			}
+			.add-layel input{
+				height: 34px;
+			    line-height: 34px;
+			    width: 70%;
+			    font-size: 14px;
+			    border: 0px;
+			    padding: 0px;
+			    color: #666666;
+			    margin: 0px;
+			}
+			.address-footer{
+				width:100%;
+				height: 60px;
+				position: fixed;
+				bottom: 0px;
+			}
+			.address-add{
+				width: 90%;
+				height: 40px;
+				background: red;
+				margin: 0 auto;
+				margin-top: 10px;
+				color: #FFFFFF;
+				line-height: 40px;
+				text-align: center;
+			}
+			.add-content{
+				margin-top: 10px;
+			}
+			.add-content p{
+				font-size:12px;
+				margin-bottom: 0px;
+				padding: 0 10px;
+				text-align: justify;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<header class="mui-bar mui-bar-nav" id="header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">新建收货地址</h1>
+		</header>
+		<div class="mui-content margin-b-70" id="muiContent">
+			<div class="add-layel">
+				<label class="font14 letter4">收件人：</label>
+				<input type="text" placeholder="请输入收件人姓名" />
+			</div>
+			<div class="add-layel">
+				<label class="font14">手机号码：</label>
+				<input type="text" placeholder="请输入收件人手机号码" />
+			</div>
+			<div class="add-layel">
+				<label class="font14">所在地区：</label>
+				<input type="text" value="湖南省"  readonly="readonly"/>
+			</div>
+			<div class="add-layel">
+				<label class="font14">详细地址：</label>
+				<input type="text" placeholder="请选择所在地区" readonly="readonly"/>
+			</div>
+			<div class="add-content">
+				<p>说明:</p>
+				<p>1:选定收获地址后提交到系统;</p>
+				<p>2:系统默认最近一次添加的地址为默认地址;</p>
+				<p>3:收货请到您选择的地址(智能保鲜配送系统所在的小区)提货;</p>
+				<p>4:您所提交过的地址系统会自动保存,您可以进入此页面添加收货地址以便快捷选择;</p>
+				<p>如果您选择的地址在之前有保存过，系统则自动视为是修改收货人信息。</p>
+			</div>
+			<div class="address-footer">
+				<div class="address-add">
+					保存
+				</div>
+			</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/comm.js"></script>
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				// 设置沉浸式导航
+				COM.biz.setImmersed();
+			});
+		</script>
+	</body>
+
+</html>

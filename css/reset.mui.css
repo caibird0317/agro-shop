@@ -20,7 +20,7 @@ nav.mui-bar.mui-bar-tab,
 	background-color: #90C873;
 }
 body nav.mui-bar .mui-tab-item.mui-active{
-	background-color: rgba(80, 173, 29, .8);
+	background-color:#90C873;
 }
 nav .mui-tab-item span,
 body nav.mui-bar .mui-tab-item.mui-active
@@ -32,7 +32,7 @@ header span,
 header a,
 header a.active
 {
-	font-size: 18px;
+	font-size: 16px;
 	color: #ffffff;
 }
 .mui-bar .mui-icon:active{
