@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/comm.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="header">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">15天免费恰巨型优惠活动</h1>
+		    <span class="mui-pull-right">
+		    	切换字体
+		    </span>
+		</header>
+		<div class="mui-content" id="muiContent">
+		    <div class="content-header">
+				<h3>恰创客之家-15天免费恰巨型优惠活动开始了</h3>
+				<span>2018-01-01 08:00:00<em class="newName">恰创客之家</em></span>
+			</div>
+			<hr />
+			<div class="content-body" id="contentText">
+				<p>
+					恰创客“免费恰菜啦” 恰创客“免费恰菜啦” 好消息，好消息，在市委市政府各级领导的大力支持下、在广大小区业主的热烈期盼下，湖南恰创客实业集团“互联网+”菜篮子工程进小区智能保鲜配送系统终于落户贵小区了。
+					有家就有“恰”！为感恩全民的鼎力支持，湖南恰创客实业集团特隆重推出免费“恰”菜半个月的优惠大酬宾活动！ 
+					关注“恰创客之家”微信公众号或下载恰创客APP，并注册成为会员，即可享受免费恰菜15天，恰多多，返多多噢。
+					 1、自注册之时起至第15日该时刻止为免费恰菜日，例：1月28日8:02:23注册成为会员，免费吃菜时间为1月28日8:02:23---2月12日8:02:23（订单付款时间2月12日8:02:23之前均有效）。 
+					 2、返现说明：返现起始月份为消费截止后的下个月开始，免费恰菜时间内累计消费总额将分期全部返至该注册的账号，返现金额仅限于平台后期消费，不能提现。例：1月28日注册成为会员，则开始返现时间为3月。
+					 3、返现标准：20元/月，返现按月执行，返完即止。每月1日至月底任意日，由客户登录平台自行提取。当月未提取，返现金额延续次月，但不累计。
+				</p>
+			</div>
+		</div>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.plusReady(function () {
+				//设置沉浸式导航
+			    COM.biz.setImmersed();
+			})
+			function $(id) {
+				return document.getElementById(id);
+			}
+			//转换字号
+			function doZoom(size) {
+				if(size == 16) {
+					$("contentText").style.fontSize = size + "px";
+					$("fs12").style.display = "";
+					$("fs14").style.display = "none";
+				}
+				if(size == 24) {
+					$("contentText").style.fontSize = size + "px";
+					$("fs12").style.display = "none";
+					$("fs14").style.display = "";
+				}
+			}
+		</script>
+	</body>
+
+</html>

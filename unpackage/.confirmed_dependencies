@@ -68,7 +68,8 @@
 			"login.html",
 			"pages/my_syslist.html",
 			"pages/my_reset_pwd.html",
-			"pages/my_message.html"
+			"pages/my_message.html",
+			"pages/my-order.html"
 		],
 		"resources": []
 	},
