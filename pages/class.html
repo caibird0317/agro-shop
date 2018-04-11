@@ -145,7 +145,9 @@
 						<div class="marquee v-center">
 							<!--TODO 替换marquee标签-->
 							<marquee behavior="scroll" direction="left">
-								15天免费恰巨型活动优惠开始了，点我了解详情。
+								<div id="freeEat">
+									15天免费恰巨型活动优惠开始了，点我了解详情。
+								</div>
 							</marquee>
 						</div>
 					</div>
@@ -260,6 +262,13 @@
 					"text": classDetail.products_intro
 				})
 			});
+			//跳转免费恰公告地址
+			document.getElementById("freeEat").addEventListener("tap",function(){
+				mui.openWindow({
+					"url":"free-eat.html",
+					"id":"free-eat.html"
+				})
+			})
 		</script>
 	</body>
 

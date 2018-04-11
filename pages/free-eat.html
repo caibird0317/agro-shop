@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<html>
 	<head>
 		<meta charset="UTF-8">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -9,15 +8,35 @@
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css" />
 		<link rel="stylesheet" type="text/css" href="../css/comm.css" />
+		<style type="text/css">
+			.content-body p{
+				line-height: 2em;
+    			text-indent: 2em;
+			}
+			.set-size-container{
+				text-align: center;
+				margin-top: 16px;
+				padding: 1px;
+				width:70px;
+				background-color: #FFF;
+			}
+			.set-size-container .set-size{
+				color: #000000;
+			}
+			.set-size-container .set-size.size-active{
+				background-color: #90C873;
+			}
+		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav" id="header">
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">15天免费恰巨型优惠活动</h1>
-		    <span class="mui-pull-right">
-		    	切换字体
-		    </span>
+		    <div class="set-size-container mui-pull-right mui-row">
+		    	<div class="set-size size-active mui-col-xs-6" data-size="16">A</div>
+		    	<div class="set-size mui-col-xs-6" data-size="24">A</div>
+		    </div>
 		</header>
 		<div class="mui-content" id="muiContent">
 		    <div class="content-header">
@@ -25,8 +44,8 @@
 				<span>2018-01-01 08:00:00<em class="newName">恰创客之家</em></span>
 			</div>
 			<hr />
-			<div class="content-body" id="contentText">
-				<p>
+			<div class="content-body">
+				<p id="contentText">
 					恰创客“免费恰菜啦” 恰创客“免费恰菜啦” 好消息，好消息，在市委市政府各级领导的大力支持下、在广大小区业主的热烈期盼下，湖南恰创客实业集团“互联网+”菜篮子工程进小区智能保鲜配送系统终于落户贵小区了。
 					有家就有“恰”！为感恩全民的鼎力支持，湖南恰创客实业集团特隆重推出免费“恰”菜半个月的优惠大酬宾活动！ 
 					关注“恰创客之家”微信公众号或下载恰创客APP，并注册成为会员，即可享受免费恰菜15天，恰多多，返多多噢。
@@ -37,27 +56,20 @@
 			</div>
 		</div>
 		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			mui.plusReady(function () {
 				//设置沉浸式导航
 			    COM.biz.setImmersed();
 			})
-			function $(id) {
-				return document.getElementById(id);
-			}
-			//转换字号
-			function doZoom(size) {
-				if(size == 16) {
-					$("contentText").style.fontSize = size + "px";
-					$("fs12").style.display = "";
-					$("fs14").style.display = "none";
-				}
-				if(size == 24) {
-					$("contentText").style.fontSize = size + "px";
-					$("fs12").style.display = "none";
-					$("fs14").style.display = "";
-				}
-			}
+			mui("#header").on("tap",".set-size",function(){
+				var size = this.getAttribute("data-size");
+				mui(".set-size").each(function(i,item){
+					item.classList.remove("size-active")
+				})
+				this.classList.add("size-active");
+				document.getElementById("contentText").style.fontSize = size+"px";
+			});
 		</script>
 	</body>
 

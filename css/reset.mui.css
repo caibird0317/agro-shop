@@ -32,7 +32,7 @@ header span,
 header a,
 header a.active
 {
-	font-size: 16px;
+	font-size: 18px;
 	color: #ffffff;
 }
 .mui-bar .mui-icon:active{

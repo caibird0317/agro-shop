@@ -152,6 +152,13 @@
 					"pages/my-order.html"
 				],
 				"priority": 0
+			},
+			"pages/class.html": {
+				"resources": [],
+				"refer": [
+					"pages/free-eat.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {

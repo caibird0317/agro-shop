@@ -964,16 +964,8 @@ COM.post = function(url, options) {
 		COM.biz.loader("show");
 	}
 	var headerData = {};
-	var timestamp = new Date().getTime();
-	headerData["corp"] = "xfd6a79635cd66d9353";
-	headerData["timestamp"] = timestamp;
-	headerData["user"] = localStorage.getItem("userId");
-	var action  = url.toLowerCase();
-	//安卓的
-	var needMd5 = "corp"+headerData["corp"]+"secret4DAB5CE9-05FD-4D1B-8AB6-8FD14BDAE710"+"timestamp"+timestamp+"action"+action+"user"+headerData["user"];
-	headerData["sign"] = hex_md5(needMd5);
+	headerData["token"] = localStorage.getItem("userId");
 	headerData["Content-Type"] = "application/json";
-	COM.biz.print(JSON.stringify(headerData));
 	url = COM.Const.SERVER_SRC + url;
 
 	COM.biz.print("请求的url: " + url);

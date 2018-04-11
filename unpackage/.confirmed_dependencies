@@ -159,5 +159,10 @@
 			"agreeMent.html"
 		],
 		"resources": []
+	},
+	"pages/class.html": {
+		"refer": [
+			"pages/free-eat.html"
+		]
 	}
 }
