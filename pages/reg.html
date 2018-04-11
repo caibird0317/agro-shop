@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/comm.css"/>
+		<style type="text/css">
+			.mui-content,
+			.content-list{
+				background-color: #fff;;
+			}
+			.content-list{
+				margin: 8px 8px 0px;
+				border-bottom: 1px solid #cccccf;
+			}
+			input.reg-submit{
+				width: 90%;
+			    margin-left: 5%;
+			    background: red;
+			    border: 0px;
+			    margin-top: 20px;
+			    height: 40px;
+			    margin-bottom: 20px;
+				
+			}
+			.content-list input{
+				border:none;
+				margin-bottom: 0px
+			}
+			.rest-mp{
+				margin: 0px;
+				padding: 0px;
+				text-decoration: none;
+				color: #888888;
+				font-size: 14px;
+				line-height: 25px;
+				text-indent: 4px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">用户注册</h1>
+		</header>
+		<div class="mui-content">
+			
+			<div class="mui-clearfix content-list">
+				<!--<div class="">姓名</div>-->
+				<input type="text" id="tjNumber" placeholder="收货人姓名" />
+			</div>
+			
+			<div class="mui-clearfix content-list">
+				<!--<div class="">手机号</div>-->
+				<input type="tel" id="dlNumber" placeholder="请输入手机号" />
+			</div>
+			
+			<div class="mui-clearfix content-list v-center">
+				<!--<div>验证码</div>-->
+				<input type="tel" style="width: 60%; float: left;" id="checkCode" placeholder="填写验证码" />
+				<button class="check-code" style="width: 40%;height:35px;float: left;">获取验证码</button>
+			</div>
+			
+			<input type="submit" class="reg-submit" value="提交" />
+			
+			<ul class="rest-mp">
+				说明：
+				<li>
+					1. 绑定手机之后您的绑定手机将收到所有系统发送的通知；
+				</li>
+				<li>
+					2. 绑定成功之后可以使用手机进行登录；
+				</li>
+			</ul>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../libs/jquery/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				// 设置沉浸式导航
+				COM.biz.setImmersed();
+			});
+			// 获取验证码
+			$(".check-code").on("click", function() {
+				// 页面倒计时
+				COM.biz.createCountDown(".check-code",{
+					time: 150,
+				});
+			});
+			// TODO 注册完成跳转页面
+		</script>
+	</body>
+
+</html>
