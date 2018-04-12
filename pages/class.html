@@ -208,6 +208,8 @@
 			var proCartBar = document.getElementById("proCartBar");
 			// 搜索按钮
 			var searchBtn = document.getElementById("searchBtn");
+			// 搜索输入框
+			var proInputSearch = document.getElementById("proInputSearch");
 			// 纯粹的遮罩容器
 			var maskBox = document.getElementById("maskBox");
 			mui.init({
@@ -246,23 +248,23 @@
 					mui.each(item.childlist, function(j, o) {
 						tempArr.push([
 							'<li class="mui-table-view-cell mui-media">',
-							'<img class="mui-media-object mui-pull-left lazy-load" data-src="',o.url,'" data-name="',o.name,'" ',j<8?["src=",o.url].join(""):["data-lazyload=",o.url].join(""),'>',
-							'<div class="mui-media-body">',
-							'<div class="mui-row pro-title-name"><div class="mui-col-sm-12">', o.name, '</div></div>',
-							'<div class="mui-row  v-center">',
-							'<div class="mui-col-sm-4">',
-							'<div class="pro-unit-number">', o.unit, '</div>',
-							'<div class="pro-less-number">还剩', o.less, '份</div>',
-							'</div>',
-							'<div class="mui-col-sm-8" style="margin:0 auto;">',
-							'<div class="mui-numbox" data-numbox-step="1" data-numbox-min="0" data-numbox-max="', o.less,'">',
-							  '<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>',
-							  '<input class="mui-numbox-input font-14" type="number" readonly="readonly"/>',
-							  '<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>',
-							'</div>',
-							'</div>',
-							'</div>',
-							'</div>',
+								'<img class="mui-media-object mui-pull-left lazy-load" data-src="',o.url,'" data-name="',o.name,'" ',j<8?["src=",o.url].join(""):["data-lazyload=",o.url].join(""),'>',
+								'<div class="mui-media-body">',
+									'<div class="mui-row pro-title-name"><div class="mui-col-sm-12">', o.name, '</div></div>',
+									'<div class="mui-row  v-center">',
+										'<div class="mui-col-sm-4">',
+											'<div class="pro-unit-number">', o.unit, '</div>',
+											'<div class="pro-less-number">还剩', o.less, '份</div>',
+										'</div>',
+										'<div class="mui-col-sm-8" style="margin:0 auto;">',
+											'<div class="mui-numbox" data-numbox-step="1" data-numbox-min="0" data-numbox-max="', o.less,'">',
+												'<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>',
+												'<input class="mui-numbox-input font-14" type="number" readonly="readonly"/>',
+												'<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>',
+											'</div>',
+										'</div>',
+									'</div>',
+								'</div>',
 							'</li>'
 						].join(""))
 					})
@@ -279,14 +281,55 @@
 					placeholder:"../images/60x60.gif"
 				});
 			}
-			// 辅助方法
-			function creatListHtml(data,type){
+			// 创建搜索的文本
+			function creatSearchContentHtml(data){
+				var dest = [];
+				try{
+					var contentSearchId = document.getElementById("contentSearchId");
+					contents.removeChild(contentSearchId);
+				}catch(e){}
+				if(!data.length){
+					return COM.biz.noDataHtml();
+				}
+				dest.push([
+					'<ul class="mui-table-view">'
+				].join(""));
+				mui.each(data,function(i,o){
+					dest.push([
+						'<li class="mui-table-view-cell mui-media">',
+							'<img class="mui-media-object mui-pull-left lazy-load" src="',o.url,'" data-name="',o.name,'">',
+							'<div class="mui-media-body">',
+								'<div class="mui-row pro-title-name"><div class="mui-col-sm-12">', o.name, '</div></div>',
+								'<div class="mui-row  v-center">',
+									'<div class="mui-col-sm-4">',
+										'<div class="pro-unit-number">', o.unit, '</div>',
+										'<div class="pro-less-number">还剩', o.less, '份</div>',
+									'</div>',
+									'<div class="mui-col-sm-8" style="margin:0 auto;">',
+										'<div class="mui-numbox" data-numbox-step="1" data-numbox-min="0" data-numbox-max="', o.less,'">',
+											'<button class="mui-btn mui-numbox-btn-minus" type="button" >-</button>',
+											'<input class="mui-numbox-input font-14" type="number" readonly="readonly"/>',
+											'<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>',
+										'</div>',
+									'</div>',
+								'</div>',
+							'</div>',
+						'</li>'
+					].join(""))
+				});
+				dest.push('</ul>');
 				
+				var divDOM = document.createElement('div');
+				divDOM.id = 'contentSearchId'; 
+				divDOM.className = 'mui-control-content mui-active'; 
+				divDOM.innerHTML = dest.join("");
+				
+				return divDOM
 			}
 			// 点击图片显示产品介绍
 			mui("#segmentedControlContents").on("tap",".lazy-load",function(){
 				var self = this;
-				var imgSrc = self.getAttribute("data-src");
+				var imgSrc = self.getAttribute("src") ||self.getAttribute("data-src");
 				var proTitle = self.getAttribute("data-name");
 				COM.biz.creatProIntro({
 					"url":imgSrc,
@@ -309,7 +352,7 @@
 				serchContainer.classList.remove("hide");
 				maskBox.classList.remove("hide");	
 				// 根据ID 删除上次创建的列表
-				
+				proInputSearch.value = "";
 			})
 			// 点击确认搜索
 			searchBtn.addEventListener("tap",function(){
@@ -323,6 +366,7 @@
 				  o.classList.remove("mui-active")
 				});
 				// 创建新的数据列表
+				contents.appendChild(creatSearchContentHtml(searchMock))
 			})
 		</script>
 	</body>
