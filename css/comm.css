@@ -66,7 +66,8 @@
     }
 }
 /*detail modal */
-.modal-box{
+.modal-box,
+.mask-search-box{
 	position: absolute;
     z-index: 9999;
     top:0px;
@@ -104,10 +105,9 @@
 
 /* end detail modal */
 .hide{
-	display: none;
+	display: none !important;
 }
 .no-data-tips {
-	/*position: absolute;*/
 	margin-top: 150px;
 	z-index: 2;
 	color: #df3e1f;
