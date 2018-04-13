@@ -141,7 +141,7 @@
 					<div class="cart-go">走，逛逛去</div>
 				</div>
 			</div>
-			<div class="goods">
+			<div class="goods" id="proContentList">
 				<div class="cart-title">
 					<img src="../images/store.png" width="20" height="20" alt="" />
 					<span>购物车</span>
@@ -151,7 +151,7 @@
 						<div class="bor-bottom padd-left-0">
 							<div class="font14 padd-t-6">螺丝椒/250g</div>
 							<div class="margin-t-6">
-								<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+								<img class="mui-media-object mui-pull-left show-pro-detail" data-name="螺丝椒/250g" src="../images/muwu.jpg">
 								<div class="mui-media-body">
 									<span class="font14 red">单价：1.49</span>
 									<div class="mui-ellipsis red">
@@ -170,7 +170,7 @@
 						<div class="bor-bottom padd-left-0">
 							<div class="font14 padd-t-6">螺丝椒/250g</div>
 							<div class="margin-t-6">
-								<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+								<img class="mui-media-object mui-pull-left show-pro-detail" data-name="螺丝椒/250g" src="../images/muwu.jpg">
 								<div class="mui-media-body">
 									<span class="font14 red">单价：1.49</span>
 									<div class="mui-ellipsis red">
@@ -197,7 +197,9 @@
 
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../mock/class.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/until.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			mui.plusReady(function () {
 				// 设置沉浸式导航
@@ -206,6 +208,17 @@
 			
 			var account = document.getElementById("account");
 			
+			// 显示商品详情
+			mui("#proContentList").on("tap",".show-pro-detail",function(){
+				var self = this;
+				var imgSrc = self.getAttribute("src") ||self.getAttribute("data-src");
+				var proTitle = self.getAttribute("data-name");
+				COM.biz.creatProIntro({
+					"url":imgSrc,
+					"title":proTitle,
+					"text": classDetail.products_intro
+				})
+			})
 			//结算
 			account.addEventListener('tap',function(){
 				mui.openWindow({
