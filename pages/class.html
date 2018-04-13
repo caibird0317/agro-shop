@@ -143,7 +143,7 @@
 		<div class="mui-content mui-fullscreen mui-row" id="muiContent">
 
 			<div class="mui-row class-top-pro v-center">
-				<div class="mui-col-xs-3 mui-text-center" id="classSearch">
+				<div class="mui-col-xs-3 mui-text-center v-center" style="height: 100%;" id="classSearch">
 					<span class="mui-icon mui-icon-search"></span>
 					<span>搜索</span>
 				</div>
@@ -273,6 +273,8 @@
 				});
 				controls.innerHTML = titleArr.join("")
 				contents.innerHTML = contentArr.join('');
+				// 手动初始化数字组件
+				mui(".mui-numbox").numbox();
 				// 默认选中第一个
 				controls.querySelector('.mui-control-item').classList.add('mui-active');
 				contents.querySelector('.mui-control-content').classList.add('mui-active');
@@ -307,8 +309,8 @@
 									'</div>',
 									'<div class="mui-col-sm-8" style="margin:0 auto;">',
 										'<div class="mui-numbox" data-numbox-step="1" data-numbox-min="0" data-numbox-max="', o.less,'">',
-											'<button class="mui-btn mui-numbox-btn-minus" type="button" >-</button>',
-											'<input class="mui-numbox-input font-14" type="number" readonly="readonly"/>',
+											'<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>',
+											'<input class="mui-numbox-input font-14" type="number" readonly="readonly" />',
 											'<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>',
 										'</div>',
 									'</div>',
@@ -323,7 +325,6 @@
 				divDOM.id = 'contentSearchId'; 
 				divDOM.className = 'mui-control-content mui-active'; 
 				divDOM.innerHTML = dest.join("");
-				
 				return divDOM
 			}
 			// 点击图片显示产品介绍
@@ -367,6 +368,8 @@
 				});
 				// 创建新的数据列表
 				contents.appendChild(creatSearchContentHtml(searchMock))
+				// 手动初始化数字组件
+				mui(".mui-numbox").numbox();
 			})
 		</script>
 	</body>
