@@ -86,7 +86,7 @@
                     <div class="mui-media-body">我的订单</div>
 	            </li>
 	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                    <img src="../images/after.png" alt="" />
+                    <img src="../images/after.png" />
                     <div class="mui-media-body">优惠券</div>
 	            </li>
 	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="myCart">
@@ -97,11 +97,11 @@
                     </div>
                     <div class="mui-media-body">购物车</div>
 	            </li>
-	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="myFree">
                     <img src="../images/free.png" alt="" />
                     <div class="mui-media-body">我的免费恰</div>
 	            </li>
-	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="qrcode">
                     <img src="../images/code.png" alt="" />
                     <div class="mui-media-body">我的二维码</div>
 	            </li>
@@ -109,15 +109,15 @@
                     <img src="../images/recipient.png" alt="" />
                     <div class="mui-media-body">收件人信息</div>
 	            </li>
-	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="myConsume">
                     <img src="../images/consumption.png" alt="" />
                     <div class="mui-media-body">我的消费</div>
 	            </li>
-	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="call">
                     <img src="../images/service.png" alt="" />
                     <div class="mui-media-body">客服中心</div>
 	            </li>
-	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+	            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="myMessage">
                     <div class="my-number">
                     	<div class="mui-badge">1</div>
                     	<img src="../images/message.png" alt="" />
@@ -147,6 +147,11 @@
 			var myOrder = document.getElementById("myOrder");
 			var myCart = document.getElementById("myCart");
 			var recipient = document.getElementById("recipient");
+			var myFree = document.getElementById("myFree");
+			var qrcode = document.getElementById("qrcode");
+			var myMessage = document.getElementById("myMessage");
+			var call = document.getElementById("call");
+			var myConsume = document.getElementById("myConsume");
 			
 			//我的钱包
 			myWallet.addEventListener('tap',function(){
@@ -174,6 +179,41 @@
 				mui.openWindow({
 					url: "address.html",
 					id: "address.html"
+				})
+			});
+			//我的免费恰
+			myFree.addEventListener('tap',function(){
+				mui.openWindow({
+					url: "my-free.html",
+					id: "my-free.html"
+				})
+			});
+			//我的二维码
+			qrcode.addEventListener('tap',function(){
+				mui.openWindow({
+					url: "my-card.html",
+					id: "my-card.html"
+				})
+			});
+			//我的消息
+			myMessage.addEventListener('tap',function(){
+				mui.openWindow({
+					url: "my-message.html",
+					id: "my-message.html"
+				})
+			});
+			//客服中心
+			call.addEventListener('tap',function(){
+				mui.openWindow({
+					url: "call-center.html",
+					id: "call-center.html"
+				})
+			});
+			//我的消费
+			myConsume.addEventListener('tap',function(){
+				mui.openWindow({
+					url: "my-consume.html",
+					id: "my-consume.html"
 				})
 			});
 		</script>

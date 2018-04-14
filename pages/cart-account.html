@@ -133,6 +133,11 @@
 				padding-left: 20px;
 				margin-right: 8px;
 			}
+			.cart-edit{
+				float: right;
+			    margin-right: 12px;
+			    color: #3333ff;
+			}
 		</style>
 	</head>
 
@@ -145,7 +150,7 @@
 			<div class="bg-white order-title">
 				<img src="../images/store.png" width="20" height="20" />
 				<span>订单商品</span>
-				<a id="editCart">修改购物车</a>
+				<span class="cart-edit" id="editCart">修改购物车</span>
 			</div>
 			<div class="mui-table-view">
 				<div class="mui-table-view-cell mui-media">
@@ -193,14 +198,14 @@
 				<div class="order-title">
 					<img src="../images/store.png" width="20" height="20" />
 					<span>收件人信息</span>
-					<a id="editAddress">编辑地址</a>
+					<span class="cart-edit" id="editAddress">重新选择</span>
 				</div>
 				<div class="order-type">
-					<div class="fl50">收件人：<span>张三</span></div>
-					<div class="fl50">手机：<span>18888888888</span></div>
+					<div class="fl50">收件人：<span id="shouName">张三</span></div>
+					<div class="fl50">手机：<span id="tell">18888888888</span></div>
 				</div>
 				<div class="order-address">
-					<div>详细地址：<span>长沙市雨花区芙蓉中路</span></div>
+					<div>详细地址：<span id="address">长沙市雨花区芙蓉中路</span></div>
 				</div>
 			</div>
 			
@@ -244,6 +249,12 @@
 					id: "address.html"
 				})
 			});
+			window.addEventListener("changeAdd",function(e){
+				console.log(JSON.stringify(e.detail));
+				var shouName = e.detail.shouName;
+				document.getElementById("shouName").innerHTML = shouName;
+				console.log("changeADD");
+			})
 			//提交订单
 			submitOrders.addEventListener('tap',function(){
 				mui.openWindow({

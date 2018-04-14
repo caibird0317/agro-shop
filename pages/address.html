@@ -93,21 +93,26 @@
 		<header class="mui-bar mui-bar-nav" id="header">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">收货地址</h1>
+		    <span id="confirmAddress" class="mui-pull-right mui-pull-right" style="padding-top: 12px;">
+		    	确认
+		    </span>
 		</header>
 		<div class="mui-content margin-b-70" id="muiContent">
 			<div class="bg-white margin-b-6">
 				<div class="border-b-1">
 					<div class="address-info">
 						<div class="address-height">
-							<span class="address-name">张三</span>
+							<span class="address-name" id="shouName">李四</span>
 							<span class="address-number">1888888888</span>
 						</div>
 						<div class="address-dz">湖南省长沙市芙蓉区</div>
 					</div>
 				</div>
 				<div class="mui-input-row mui-radio mui-left font12">
-					<label>默认地址</label>
-					<input name="radio1" type="radio">
+					<div data-name="李四" style="position: relative;width: 50%;">
+						<label>默认地址</label>
+						<input name="radio1" type="radio">
+					</div>
 					<div class="address-editor">
 						<img src="../images/store.png" width="20" height="20" />
 						<span class="editAddress">编辑</span>
@@ -180,6 +185,16 @@
 			mui.plusReady(function() {
 				// 设置沉浸式导航
 				COM.biz.setImmersed();
+				var confirmAddress = document.getElementById("confirmAddress");
+				var shouName = document.getElementById("shouName").innerHTML;
+				var lastPage = plus.webview.getWebviewById("cart-account.html");
+				confirmAddress.addEventListener('tap',function(){
+					mui.fire(lastPage,"changeAdd",{"shouName":shouName});
+					mui.openWindow({
+						url: "cart-account.html",
+						id: "cart-account.html",
+					})
+				});
 			});
 			
 			var addAddress = document.getElementById("addAddress");

@@ -149,7 +149,14 @@
 			"pages/my.html": {
 				"resources": [],
 				"refer": [
-					"pages/my-order.html"
+					"pages/my-order.html",
+					"pages/my-wallet.html",
+					"pages/my-free.html",
+					"pages/my-card.html",
+					"pages/address.html",
+					"pages/my-consume.html",
+					"pages/call-center.html",
+					"pages/my-message.html"
 				],
 				"priority": 0
 			},
@@ -157,6 +164,27 @@
 				"resources": [],
 				"refer": [
 					"pages/free-eat.html"
+				],
+				"priority": 0
+			},
+			"pages/my-wallet.html": {
+				"resources": [],
+				"refer": [
+					"pages/my-recharge.html"
+				],
+				"priority": 0
+			},
+			"pages/my-recharge.html": {
+				"resources": [],
+				"refer": [
+					"pages/psy-password.html"
+				],
+				"priority": 0
+			},
+			"pages/cart.html": {
+				"resources": [],
+				"refer": [
+					"pages/cart-account.html"
 				],
 				"priority": 0
 			}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的消息</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/comm.css"/>
+		<style type="text/css">
+			.mui-card{
+				margin: 0px;
+			}
+			.mui-content>.mui-card:first-child{
+				margin-top: 0px;
+			}
+			.mui-badge{
+				background-color: #FFFFFF;
+			}
+			.free-title{
+				color: #999999;
+			}
+			.order-title{
+				height:30px;
+				line-height: 30px;
+				font-size: 14px;
+				padding-left:6px;
+				text-align: center;
+			}
+			.order-title img{
+				position: relative;
+				top: 5px;
+			}
+			.order-title a{
+				float: right;
+				margin-right: 15px;
+			}
+			.bg-white{
+				background: #FFFFFF;
+			}
+			.free-content{
+				margin-top: 40px;
+				color: #999999;
+				font-size: 12px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">消息中心</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="muiContent">
+			<div class="mui-card">
+		        <ul class="mui-table-view">
+		            <li class="mui-table-view-cell free-title">所有消息<span class="mui-badge">0</span></li>
+		            <li class="mui-table-view-cell free-title">未读消息<span class="mui-badge">0</span></li>
+		            <li class="mui-table-view-cell free-title">已发送消息<span class="mui-badge">0</span></li>
+		        </ul>
+		   </div>
+			<div class="order-title free-content">
+				<div>所有活动和服务解释权归湖南绿色蔬菜</div>
+				<div>远鹏农业技术部提供技术支持</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			mui.plusReady(function() {
+				// 设置沉浸式导航
+				COM.biz.setImmersed();
+			});
+			
+		</script>
+	</body>
+
+</html>

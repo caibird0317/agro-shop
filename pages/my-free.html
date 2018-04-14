@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的免费恰</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/comm.css"/>
+		<style type="text/css">
+			.mui-card{
+				margin: 0px;
+			}
+			.mui-content>.mui-card:first-child{
+				margin-top: 0px;
+			}
+			.mui-badge{
+				background-color: #FFFFFF;
+			}
+			.free-title{
+				color: #999999;
+			}
+			.order-title{
+				height:40px;
+				line-height: 40px;
+				font-size: 14px;
+				padding-left:6px;
+				border-bottom: 1px solid #e5e5e5;
+				margin-top: 10px;
+			}
+			.order-title img{
+				position: relative;
+				top: 5px;
+			}
+			.order-title a{
+				float: right;
+				margin-right: 15px;
+			}
+			.bg-white{
+				background: #FFFFFF;
+			}
+			.free-content{
+				margin-top: 0px;
+				color: #999999;
+				font-size: 12px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">免费恰</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="muiContent">
+			<div class="mui-card">
+		        <ul class="mui-table-view">
+		            <li class="mui-table-view-cell free-title">全部金额<span class="mui-badge">0.00</span></li>
+		            <li class="mui-table-view-cell free-title">直营店会员免费恰<span class="mui-badge">0.00</span></li>
+		            <li class="mui-table-view-cell free-title">恰创客商城免费恰<span class="mui-badge">0.00</span></li>
+		           	<li class="mui-table-view-cell free-title">股权红利<span class="mui-badge">0.00</span></li>
+		        </ul>
+		    </div>
+		    <div class="bg-white order-title">
+				<img src="../images/store.png" width="20" height="20">
+				<span>订单商品</span>
+			</div>
+			<div class="bg-white order-title free-content">
+				抱歉：您还没有参加本类型活动或者活动还没有
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			mui.plusReady(function() {
+				// 设置沉浸式导航
+				COM.biz.setImmersed();
+			});
+			
+		</script>
+	</body>
+
+</html>

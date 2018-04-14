@@ -39,6 +39,7 @@
 			.fl50{
 				float: left;
 				width: 50%;
+				margin-top: 10px;
 			}
 			.both{
 				clear: both;
@@ -66,6 +67,7 @@
 				font-size: 14px;
 				padding-left:6px;
 				border-bottom: 1px solid #e5e5e5;
+				margin-top: 10px;
 			}
 			.order-title img{
 				position: relative;
@@ -102,9 +104,13 @@
 			}
 			.order-btn{
 				width: 100%;
-				height: 40px;
-				line-height: 40px;
+				height: 50px;
+				line-height: 50px;
 				margin-top: 10px;
+				position: fixed;
+				bottom: 0px;
+				z-index: 999;
+				background: #ffffff;
 			}
 			.order-pay{
 				width: 80%;
@@ -121,6 +127,9 @@
 				padding-left: 20px;
 				margin-right: 8px;
 			}
+			.margin-b-50{
+				margin-bottom: 50px;
+			}
 		</style>
 	</head>
 
@@ -129,7 +138,7 @@
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">订单详情</h1>
 		</header>
-		<div class="content mui-content" id="muiContent">
+		<div class="content mui-content margin-b-50" id="muiContent">
 			
 			<div class="bg-white">
 				<div class="order-title">

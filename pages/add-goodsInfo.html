@@ -100,11 +100,11 @@
 		<div class="mui-content margin-b-70" id="muiContent">
 			<div class="add-layel">
 				<label class="font14 letter4">收件人：</label>
-				<input type="text" placeholder="请输入收件人姓名" />
+				<input type="text" id="name" placeholder="请输入收件人姓名" />
 			</div>
 			<div class="add-layel">
 				<label class="font14">手机号码：</label>
-				<input type="text" placeholder="请输入收件人手机号码" />
+				<input type="text" id="tell" placeholder="请输入收件人手机号码" />
 			</div>
 			<div class="add-layel">
 				<label class="font14">所在地区：</label>
@@ -112,7 +112,7 @@
 			</div>
 			<div class="add-layel">
 				<label class="font14">详细地址：</label>
-				<input type="text" placeholder="请选择所在地区" readonly="readonly"/>
+				<input type="text" id="address" placeholder="请选择所在地区" readonly="readonly"/>
 			</div>
 			<div class="add-content">
 				<p>说明:</p>
@@ -123,7 +123,7 @@
 				<p>如果您选择的地址在之前有保存过，系统则自动视为是修改收货人信息。</p>
 			</div>
 			<div class="address-footer">
-				<div class="address-add">
+				<div class="address-add" id="save">
 					保存
 				</div>
 			</div>
@@ -135,6 +135,15 @@
 			mui.plusReady(function() {
 				// 设置沉浸式导航
 				COM.biz.setImmersed();
+			});
+			
+			var save = document.getElementById("save");
+			//保存
+			save.addEventListener('tap',function(){
+				mui.openWindow({
+					url: "cart-account.html",
+					id: "cart-account.html",
+				})
 			});
 		</script>
 	</body>
