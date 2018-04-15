@@ -813,6 +813,7 @@ COM.biz = (function() {
 		'</div>'
 		].join("");
 		document.body.appendChild(div);
+		document.body.classList.add("over-hide");
 	}
 	
 	return {

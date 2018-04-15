@@ -12,8 +12,9 @@ $(function(){
 			<li class="tab"><span class="off">7</span></li>\
 			<li class="symbol"><span class="off">8</span></li>\
 			<li class="symbol btn_number_"><span class="off">9</span></li>\
-			<li class="delete lastitem w66">删除</li>\
+			<li class="delete lastitem">删除</li>\
 			<li class="symbol"><span class="off">0</span></li>\
+			<li class="forget-pwd" style="color:red;">忘记密码?</li>\
 		</ul>\
 	</div>\
 	';
@@ -57,46 +58,13 @@ $(function(){
             $("#key").hide();
            	var action = 'modify';
                 $.ajax({
-                    url:'confirmLadingPassword.do',
+                    url:'todo.do',
                     type:'post',
-                    data:{userName:'heboy18',ladingPassword:check_pass_word},
+                    data:{userName:'test',ladingPassword:check_pass_word},
                     dataType:'json',
                     success:function(data){
                     	var result=JSON.stringify(data);
-                        if(result=="\"验证通过\""){
-                        	if(action=="modify"){
-                        		window.parent.document.getElementById("modify_div").style.display='';
-                        		window.parent.document.getElementById("modify_ladingPassword").disabled='disabled';
-                        		window.parent.document.getElementById("oldLadingPassword").value=check_pass_word;
-	                        	parentDialog.close();//如果验证成功关闭当前窗口并跳转到提单券号列表
-                        	}else if(action=="set"){
-                        		var ladingId = parent.window.document.getElementById("ladingId").value;
-                        		var ladingType =parent.window.document.getElementById("ladingType").value;
-                        		parent.window.location.href="indexSeting.do";
-	                        	//parentDialog.close();//如果验证成功关闭当前窗口并跳转到提单券号列表
-                        	}
-                        }else{
-                        	var result_text='\
-                           		<span>提货密码</span>\
-                           		<span style="color: red;">验证失败</span>\
-                           		';
-                        	$("#set_text").html(result_text);
-                        	$("#key").show();
-                        	for (var i = 0; i < passwords.elements.length; i++) {
-                				$(passwords.elements[i]).val('');
-            				}
-                        	/*var t=1;
-							var t1 = window.setInterval(function(){
-	    						t--;
-	    						if(t==0){
-		    						window.clearInterval(t1);
-		    						if('set'==action){
-		    							parent.window.location.href="queryLadingDetailWeixin.pfv?rm="+rm;
-		    						}else if('modify'==action)
-		                        		parent.window.location.href="weixinLading.pfv?info=2";
-		    					}
-	    					},1000);*/
-                        }
+                     
                     },
                     error:function(data){
                         var result_text='\
@@ -104,17 +72,10 @@ $(function(){
                            <span style="color: red;">验证失败</span>\
                            ';
                         $("#set_text").html(result_text);
-                        var t=1;
-							var t1 = window.setInterval(function(){
-	    						t--;
-	    						if(t==0){
-		    						window.clearInterval(t1);
-		    						if('set'==action){
-		    							parent.window.location.href="queryLadingDetailWeixin.do";
-		    						}else if('modify'==action)
-		                        		parent.window.location.href="#";
-		    					}
-	    					},1000);
+                        mui.toast("密码错误");
+                        setTimeout(function(){                        	
+                        	window.location.reload();
+                        },1000)
                     }
                 });
             }
@@ -142,7 +103,7 @@ $(function(){
     form.addEventListener("keyup", tabForward, false);
     var set_text='\
 	<span>请输入</span>\
-	<span style="color: red;">提货密码</span>\
+	<span style="color: red;">支付密码</span>\
 	<span>，验证本次操作</span>\
 	';
     $("#set_text").html(set_text);

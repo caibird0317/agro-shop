@@ -186,5 +186,18 @@
 		"refer": [
 			"pages/cart-account.html"
 		]
+	},
+	"pages/address.html": {
+		"refer": [
+			"pages/add-goodsInfo.html",
+			"pages/cart-account.html",
+			"pages/add-address.html"
+		]
+	},
+	"pages/cart-account.html": {
+		"refer": [
+			"pages/order-info.html",
+			"pages/address.html"
+		]
 	}
 }

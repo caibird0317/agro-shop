@@ -45,6 +45,155 @@
 				color: #999999;
 				font-size: 12px;
 			}
+			
+			.mui-table-view .mui-media-object {
+			    line-height: 50px;
+			    max-width: 56px;
+			    height: 50px;
+			}
+			.mui-table-view {
+			    background-color: #F9F9F9;
+			}
+			.mui-table-view-cell>a:not(.mui-btn) {
+			    padding-left: 28px;
+			}
+			.font14{
+				font-size: 14px;
+			}
+			.font16{
+				font-size: 16px;
+			}
+			.red{
+				color: red;
+			}
+			input[type=reset]{
+				margin-top: 3px;
+				float: right;
+   				margin-right: 10px;
+			}
+			.mui-bar~.mui-content .mui-fullscreen {
+				top: 0px;
+				height: auto;
+			}
+			.mui-bar-nav~.mui-content .mui-slider.mui-fullscreen{
+				top:0px
+			}
+			.mui-pull-top-tips {
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				margin-left: -25px;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+				z-index: 1;
+			}
+			.mui-bar~.mui-pull-top-tips {
+				top: 24px;
+			}
+			.mui-pull-top-wrapper {
+				width: 42px;
+				height: 42px;
+				display: block;
+				text-align: center;
+				background-color: #efeff4;
+				border: 1px solid #ddd;
+				border-radius: 25px;
+				background-clip: padding-box;
+				box-shadow: 0 4px 10px #bbb;
+				overflow: hidden;
+			}
+			.mui-pull-top-tips.mui-transitioning {
+				-webkit-transition-duration: 200ms;
+				transition-duration: 200ms;
+			}
+			.mui-pull-top-tips .mui-pull-loading {
+				margin: 0;
+			}
+			.mui-pull-top-wrapper .mui-icon,
+			.mui-pull-top-wrapper .mui-spinner {
+				margin-top: 7px;
+			}
+			.mui-pull-bottom-tips {
+				text-align: center;
+				background-color: #efeff4;
+				font-size: 15px;
+				line-height: 40px;
+				color: #777;
+			}
+			.mui-pull-top-canvas {
+				overflow: hidden;
+				background-color: #fafafa;
+				border-radius: 40px;
+				box-shadow: 0 4px 10px #bbb;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			.mui-pull-top-canvas canvas {
+				width: 40px;
+			}
+			.mui-slider-indicator.mui-segmented-control {
+				background-color: #efeff4;
+			}
+			.mui-segmented-control.mui-scroll-wrapper .mui-scroll{
+				width: 100%;
+				background: #FFFFFF;
+			}
+			.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
+				width: 33.33%;
+				padding: 0px;
+				font-size: 12px;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+				color: red;
+			}
+			.order-li{
+				padding: 0px;
+			}
+			.mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+			    position: relative;
+			}
+			.order-number{
+				width: 16px;
+			    height: 16px;
+			    background: red;
+			    border-radius: 50%;
+			    z-index: 999;
+			    position: absolute;
+			    top: 10%;
+			    right: 22%;
+			    color: #FFFFFF;
+			    text-align: center;
+			    line-height: 16px;
+			    font-size: 12px;
+			}
+			.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
+				position: relative;
+			}
+			.new-list{
+				height: 36px;
+				line-height: 36px;
+				background: #FFFFFF;
+				padding-left: 6px;
+				text-align: left;
+				font-size: 12px;
+				border-bottom: 1px solid #d5d5d5;
+			}
+			.mui-fullscreen{
+				position: relative;
+			}
+			.mui-active p{
+				color: red!important;
+			}
+			.mui-control-item p{
+				font-size: 12px;
+				margin-bottom: 0px;
+				line-height: 20px;
+			}
+			.mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item{
+				border-bottom:0px;
+			}
 		</style>
 	</head>
 
@@ -57,21 +206,69 @@
 			<div class="mui-card">
 		        <ul class="mui-table-view">
 		            <li class="mui-table-view-cell free-title">全部金额<span class="mui-badge">0.00</span></li>
-		            <li class="mui-table-view-cell free-title">直营店会员免费恰<span class="mui-badge">0.00</span></li>
-		            <li class="mui-table-view-cell free-title">恰创客商城免费恰<span class="mui-badge">0.00</span></li>
-		           	<li class="mui-table-view-cell free-title">股权红利<span class="mui-badge">0.00</span></li>
 		        </ul>
 		    </div>
-		    <div class="bg-white order-title">
+		    <div id="slider" class="mui-slider mui-fullscreen" style="height: 50%;">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll">
+						<div class="mui-control-item mui-active" href="#item1mobile">
+							<p>0.00</p>
+							<p>直营店会员免费恰</p>
+						</div>
+						<div class="mui-control-item" href="#item2mobile">
+							<p>0.00</p>
+							<p>恰创客商城免费恰</p>
+						</div>
+						<div class="mui-control-item" href="#item3mobile">
+							<p>0.00</p>
+							<p>股权分红</p>
+						</div>
+					</div>
+				</div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		   <div>
+		   	 <div class="bg-white order-title">
 				<img src="../images/store.png" width="20" height="20">
-				<span>订单商品</span>
+				<span>绿色蔬菜</span>
 			</div>
 			<div class="bg-white order-title free-content">
 				抱歉：您还没有参加本类型活动或者活动还没有
 			</div>
+		   </div>
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.pullToRefresh.js"></script>
+		<script src="../js/mui.pullToRefresh.material.js"></script>
 		<script type="text/javascript">
 			
 			mui.plusReady(function() {

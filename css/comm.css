@@ -68,7 +68,7 @@
 /*detail modal */
 .modal-box,
 .mask-search-box{
-	position: absolute;
+	position: fixed;
     z-index: 9999;
     top:0px;
     left:0px;
@@ -101,6 +101,9 @@
 	text-indent: 2em;
 	font-size: 14px;
 	padding: 8px 4px;
+}
+.over-hide{
+	overflow: hidden;
 }
 
 /* end detail modal */

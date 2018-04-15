@@ -9,40 +9,231 @@
 		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/comm.css"/>
 		<style type="text/css">
-			.mui-card{
-				margin: 0px;
+			.order-list{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				font-size: 12px;
+    			background: #FFFFFF;
+    			margin: 0px;
+    			padding: 0px;
 			}
-			.mui-content>.mui-card:first-child{
-				margin-top: 0px;
+			.order-list .select{
+				border-bottom: 2px solid red;
+    			color: red;
 			}
-			.mui-badge{
-				background-color: #FFFFFF;
-			}
-			.free-title{
-				color: #999999;
-			}
-			.order-title{
-				height:30px;
-				line-height: 30px;
-				font-size: 14px;
-				padding-left:6px;
+			.order-list li{
+				float: left;
+				width: 25%;
 				text-align: center;
+				list-style:none;
+				color: #666666;
 			}
-			.order-title img{
+			.order-btn{
+				height: 40px;
+				width: 100%;
+				border-top: 1px solid #e5e5e5;
+			}
+			.order-content{
+				text-align: right;
+				padding-right: 20px;
+				line-height: 30px;
+				height: 30px;
+				width: 100%;
+			}
+			.order-img{
+				width: 16px;
+				height: 16px;
+				position: absolute;
+				z-index: 9;
+				top: 6px;
+				left: 6px;
+			}
+			.order-info{
+				margin-top: 4px;
 				position: relative;
-				top: 5px;
 			}
-			.order-title a{
-				float: right;
-				margin-right: 15px;
-			}
-			.bg-white{
+			.white{
 				background: #FFFFFF;
 			}
-			.free-content{
-				margin-top: 40px;
-				color: #999999;
+			.font12{
 				font-size: 12px;
+			}
+			.mui-table-view-cell>a:not(.mui-btn) {
+			    margin: -16px -15px;
+			    padding-left: 34px;
+			}
+			.mui-card-footer, .mui-card-header{
+				min-height: 30px;
+			}
+			.mui-card-footer .mui-card-link, .mui-card-header .mui-card-link{
+				height: 30px;
+				line-height: 30px;
+			}
+			.mui-card-footer:before, .mui-card-header:after{
+				height: 0px;
+			}
+			.mui-table-view:after{
+				height: 0px;
+			}
+			.mui-table-view-cell:after{
+				left: 0px;
+			}
+			.mui-table-view:before{
+				height: 0px;
+			}
+			.c-666666{
+				color: #666666;
+			}
+			.b-f9f9f9{
+				background: #f9f9f9;
+			}
+			.c-333333{
+				color: #333333;
+			}
+			.padding-left-0{
+				padding-left: 0px;
+			}
+			.mui-table-view .mui-media-object {
+			    line-height: 50px;
+			    max-width: 56px;
+			    height: 50px;
+			}
+			.mui-table-view {
+			    background-color: #F9F9F9;
+			}
+			.mui-table-view-cell>a:not(.mui-btn) {
+			    padding-left: 28px;
+			}
+			.font14{
+				font-size: 14px;
+			}
+			.font16{
+				font-size: 16px;
+			}
+			.red{
+				color: red;
+			}
+			input[type=reset]{
+				margin-top: 3px;
+				float: right;
+   				margin-right: 10px;
+			}
+			.mui-bar~.mui-content .mui-fullscreen {
+				top: 44px;
+				height: auto;
+			}
+			.mui-pull-top-tips {
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				margin-left: -25px;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+				z-index: 1;
+			}
+			.mui-bar~.mui-pull-top-tips {
+				top: 24px;
+			}
+			.mui-pull-top-wrapper {
+				width: 42px;
+				height: 42px;
+				display: block;
+				text-align: center;
+				background-color: #efeff4;
+				border: 1px solid #ddd;
+				border-radius: 25px;
+				background-clip: padding-box;
+				box-shadow: 0 4px 10px #bbb;
+				overflow: hidden;
+			}
+			.mui-pull-top-tips.mui-transitioning {
+				-webkit-transition-duration: 200ms;
+				transition-duration: 200ms;
+			}
+			.mui-pull-top-tips .mui-pull-loading {
+				/*-webkit-backface-visibility: hidden;
+				-webkit-transition-duration: 400ms;
+				transition-duration: 400ms;*/
+				
+				margin: 0;
+			}
+			.mui-pull-top-wrapper .mui-icon,
+			.mui-pull-top-wrapper .mui-spinner {
+				margin-top: 7px;
+			}
+			.mui-pull-top-wrapper .mui-icon.mui-reverse {
+				/*-webkit-transform: rotate(180deg) translateZ(0);*/
+			}
+			.mui-pull-bottom-tips {
+				text-align: center;
+				background-color: #efeff4;
+				font-size: 15px;
+				line-height: 40px;
+				color: #777;
+			}
+			.mui-pull-top-canvas {
+				overflow: hidden;
+				background-color: #fafafa;
+				border-radius: 40px;
+				box-shadow: 0 4px 10px #bbb;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			.mui-pull-top-canvas canvas {
+				width: 40px;
+			}
+			.mui-slider-indicator.mui-segmented-control {
+				background-color: #efeff4;
+			}
+			.mui-fullscreen{
+				top:44px;
+			}
+			.mui-segmented-control.mui-scroll-wrapper .mui-scroll{
+				width: 100%;
+				background: #FFFFFF;
+			}
+			.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
+				width: 33.33%;
+				padding: 0px;
+				font-size: 14px;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+				color: red;
+			}
+			.order-li{
+				padding: 0px;
+			}
+			.mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+			    position: relative;
+			}
+			.order-number{
+				width: 16px;
+			    height: 16px;
+			    background: red;
+			    border-radius: 50%;
+			    z-index: 999;
+			    position: absolute;
+			    top: 10%;
+			    right: 22%;
+			    color: #FFFFFF;
+			    text-align: center;
+			    line-height: 16px;
+			    font-size: 12px;
+			}
+			.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
+				position: relative;
+			}
+			.new-list{
+				height: 36px;
+				line-height: 36px;
+				background: #FFFFFF;
+				padding-left: 6px;
+				text-align: left;
+				font-size: 12px;
+				border-bottom: 1px solid #d5d5d5;
 			}
 		</style>
 	</head>
@@ -50,30 +241,70 @@
 	<body>
 		<header class="mui-bar mui-bar-nav" id="header">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">消息中心</h1>
+		    <h1 class="mui-title">我的消息</h1>
 		</header>
 		<div class="mui-content mui-scroll-wrapper" id="muiContent">
-			<div class="mui-card">
-		        <ul class="mui-table-view">
-		            <li class="mui-table-view-cell free-title">所有消息<span class="mui-badge">0</span></li>
-		            <li class="mui-table-view-cell free-title">未读消息<span class="mui-badge">0</span></li>
-		            <li class="mui-table-view-cell free-title">已发送消息<span class="mui-badge">0</span></li>
-		        </ul>
-		   </div>
-			<div class="order-title free-content">
-				<div>所有活动和服务解释权归湖南绿色蔬菜</div>
-				<div>远鹏农业技术部提供技术支持</div>
+			<div id="slider" class="mui-slider mui-fullscreen" style="margin-top: 28px;">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll">
+						<a class="mui-control-item mui-active" href="#item1mobile">
+							所有
+						</a>
+						<a class="mui-control-item" href="#item2mobile">
+							未读
+							<div class="order-number">9</div>
+						</a>
+						<a class="mui-control-item" href="#item3mobile">
+							已发送
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<div class="new-list">
+										您购买的蔬菜已经送到保鲜柜，请注意查收！
+									</div>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<div class="new-list">
+										您购买的蔬菜已经送到保鲜柜，请注意查收！
+									</div>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<div class="new-list">
+										您购买的蔬菜已经送到保鲜柜，请注意查收！
+									</div>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+		
 		<script src="../js/mui.min.js"></script>
-		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/comm.js"></script>
 		<script type="text/javascript">
-			
+			mui.init();
 			mui.plusReady(function() {
 				// 设置沉浸式导航
 				COM.biz.setImmersed();
 			});
-			
 		</script>
 	</body>
 

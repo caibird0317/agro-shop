@@ -199,4 +199,34 @@ var searchMock = [
 		"unit": "¥2.50/500g",
 		"less": "1000"
 	}
+];
+var cityData3 =  [
+	{
+		value: 'yys',
+		text: '益阳市',
+		children: [
+			{
+				value: "hsq",
+				text: "赫山区",
+				children: [
+					{
+						value: "1",
+						text: "金谷家园"
+					},
+					{
+						value: "2",
+						text: "华天一号公馆"
+					},
+					{
+						value: "3",
+						text: "香格里拉"
+					},
+					{
+						value: "4",
+						text: "凯特密欧产业园"
+					}
+				]
+			}
+		]
+	}
 ]

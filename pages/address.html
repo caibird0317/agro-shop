@@ -182,11 +182,11 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/comm.js"></script>
 		<script type="text/javascript">
+			var confirmAddress = document.getElementById("confirmAddress");
+			var shouName = document.getElementById("shouName").innerHTML;
 			mui.plusReady(function() {
 				// 设置沉浸式导航
 				COM.biz.setImmersed();
-				var confirmAddress = document.getElementById("confirmAddress");
-				var shouName = document.getElementById("shouName").innerHTML;
 				var lastPage = plus.webview.getWebviewById("cart-account.html");
 				confirmAddress.addEventListener('tap',function(){
 					mui.fire(lastPage,"changeAdd",{"shouName":shouName});
@@ -203,15 +203,15 @@
 			//添加地址
 			addAddress.addEventListener('tap',function(){
 				mui.openWindow({
-					url: "add-goodsInfo.html",
-					id: "add-goodsInfo.html"
+					url: "add-address.html",
+					id: "add-address.html"
 				})
 			});
 			//编辑地址
 			editAddress.addEventListener('tap',function(){
 				mui.openWindow({
-					url: "add-goodsInfo.html",
-					id: "add-goodsInfo.html"
+					url: "add-address.html",
+					id: "add-address.html"
 				})
 			});
 		</script>

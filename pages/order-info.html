@@ -199,10 +199,22 @@
 				<img src="../images/store.png" width="20" height="20" />
 				<span>订单商品</span>
 			</div>
-			<div class="mui-table-view">
+			<div class="mui-table-view" id="proContentList">
 				<div class="mui-table-view-cell mui-media">
 					<a href="javascript:;" class="padd-left-0">
-						<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+						<img class="mui-media-object mui-pull-left show-pro-detail" data-name="大白菜/1000g" src="../images/muwu.jpg">
+							<div class="mui-media-body">
+							<span class="font14">大白菜/1000g</span>
+							<div class="mui-ellipsis red margin-t-6">
+								<span class="font14">¥2.56</span>
+								<span class="mui-pull-right font12 c-666666">数量:x1</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="mui-table-view-cell mui-media">
+					<a href="javascript:;" class="padd-left-0">
+						<img class="mui-media-object mui-pull-left show-pro-detail" data-name="大白菜/1000g" src="../images/muwu.jpg">
 						<div class="mui-media-body">
 							<span class="font14">大白菜/1000g</span>
 							<div class="mui-ellipsis red margin-t-6">
@@ -214,19 +226,7 @@
 				</div>
 				<div class="mui-table-view-cell mui-media">
 					<a href="javascript:;" class="padd-left-0">
-						<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
-						<div class="mui-media-body">
-							<span class="font14">大白菜/1000g</span>
-							<div class="mui-ellipsis red margin-t-6">
-								<span class="font14">¥2.56</span>
-								<span class="mui-pull-right font12 c-666666">数量:x1</span>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="mui-table-view-cell mui-media">
-					<a href="javascript:;" class="padd-left-0">
-						<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+						<img class="mui-media-object mui-pull-left show-pro-detail" data-name="大白菜/1000g" src="../images/muwu.jpg">
 						<div class="mui-media-body">
 							<span class="font14">大白菜/1000g</span>
 							<div class="mui-ellipsis red margin-t-6">
@@ -262,6 +262,8 @@
 		</div>
 		
 		<script src="../js/mui.min.js"></script>
+		<script src="../mock/class.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/until.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			
@@ -270,7 +272,17 @@
 				COM.biz.setImmersed();
 			});
 			
-			
+			// 显示商品详情
+			mui("#proContentList").on("tap",".show-pro-detail",function(){
+				var self = this;
+				var imgSrc = self.getAttribute("src") ||self.getAttribute("data-src");
+				var proTitle = self.getAttribute("data-name");
+				COM.biz.creatProIntro({
+					"url":imgSrc,
+					"title":proTitle,
+					"text": classDetail.products_intro
+				})
+			})
 		</script>
 	</body>
 

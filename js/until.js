@@ -2,6 +2,7 @@
 mui("body").on("tap",".modal-box",function(){
 	var proIntroModal = document.getElementById("proIntroModal");
 	document.body.removeChild(proIntroModal);
+	document.body.classList.remove("over-hide");
 })
 // 关闭
 mui("body").on("tap",".mask-search-box",function(){

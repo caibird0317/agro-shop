@@ -187,6 +187,23 @@
 					"pages/cart-account.html"
 				],
 				"priority": 0
+			},
+			"pages/address.html": {
+				"resources": [],
+				"refer": [
+					"pages/add-goodsInfo.html",
+					"pages/cart-account.html",
+					"pages/add-address.html"
+				],
+				"priority": 0
+			},
+			"pages/cart-account.html": {
+				"resources": [],
+				"refer": [
+					"pages/order-info.html",
+					"pages/address.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {

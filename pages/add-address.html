@@ -5,8 +5,11 @@
 		<meta charset="UTF-8">
 		<title>新建收货地址</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/comm.css"/>
+		<link href="../css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../css/mui.poppicker.css" rel="stylesheet" />
 		<style type="text/css">
 			.mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before{
 				font-size: 22px;
@@ -110,9 +113,9 @@
 				<label class="font14">所在地区：</label>
 				<input type="text" value="湖南省"  readonly="readonly"/>
 			</div>
-			<div class="add-layel">
+			<div class="add-layel" id="addressDetail">
 				<label class="font14">详细地址：</label>
-				<input type="text" id="address" placeholder="请选择所在地区" readonly="readonly"/>
+				<input type="text" id="addressVal" placeholder="请选择所在地区" readonly="readonly"/>
 			</div>
 			<div class="add-content">
 				<p>说明:</p>
@@ -130,15 +133,36 @@
 		</div>
 		
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.poppicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../mock/class.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/comm.js"></script>
 		<script type="text/javascript">
+			mui.init();
+			// 详细地址
+			var addressDetail = document.getElementById("addressDetail");
+			// 地址input
+			var addressVal = document.getElementById("addressVal");
+			// 保存地址
+			var save = document.getElementById("save");
+			
+			// 构建三层地理路径位置
+			var cityPicker = new mui.PopPicker({
+				layer: 3
+			});
+			
 			mui.plusReady(function() {
 				// 设置沉浸式导航
 				COM.biz.setImmersed();
 			});
+			cityPicker.setData(cityData3);
 			
-			var save = document.getElementById("save");
-			//保存
+			addressDetail.addEventListener('tap',function(){
+				cityPicker.show(function(items) {
+					addressVal.value = items[0]['text'] +  items[1]['text'] + items[2]['text'];
+				})
+			});
+			//保存点击
 			save.addEventListener('tap',function(){
 				mui.openWindow({
 					url: "cart-account.html",

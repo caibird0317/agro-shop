@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/comm.css" rel="stylesheet" />
 		<style type="text/css">
 			.order-list{
 				width: 100%;
@@ -152,18 +153,11 @@
 				transition-duration: 200ms;
 			}
 			.mui-pull-top-tips .mui-pull-loading {
-				/*-webkit-backface-visibility: hidden;
-				-webkit-transition-duration: 400ms;
-				transition-duration: 400ms;*/
-				
 				margin: 0;
 			}
 			.mui-pull-top-wrapper .mui-icon,
 			.mui-pull-top-wrapper .mui-spinner {
 				margin-top: 7px;
-			}
-			.mui-pull-top-wrapper .mui-icon.mui-reverse {
-				/*-webkit-transform: rotate(180deg) translateZ(0);*/
 			}
 			.mui-pull-bottom-tips {
 				text-align: center;
@@ -216,7 +210,7 @@
 			    z-index: 999;
 			    position: absolute;
 			    top: 2px;
-			    right: 8px;
+			    right: 14px;
 			    color: #FFFFFF;
 			    text-align: center;
 			    line-height: 16px;
@@ -224,6 +218,62 @@
 			}
 			.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
 				position: relative;
+			}
+			/*支付*/
+			.pay-method-list{
+				padding: 0px 10px;
+			}
+			.pay-method-list .pay-alipay,
+			.pay-method-list .pay-weixin,
+			.pay-method-list .pay-vip
+			{
+				height: 45px;
+				line-height: 45px;
+				text-align: center;
+				/*margin-left: 4px;*/
+				border: 1px solid #d6d6e0;
+				background-color: #fff;
+				border-radius: 4px;
+				width: 29%;
+				background-position: center;
+			}
+			.pay-alipay{
+				margin-left: 6% ;
+				background: url(../images/pay_alipay.png) no-repeat;
+				background-size: 75%;
+			}
+			.pay-vip{
+				background: url(../images/ak-ly.png) no-repeat;
+				background-size: 50%;
+			}
+			.pay-weixin{
+				margin-left: 6% ;
+				background: url(../images/pay_weixin.png) no-repeat;
+				background-size: 80%;
+			}
+			.pay-method-list .pay-select {
+				/*90c873*/
+			    border-color: #00aaff;
+			}
+			.pay-method-list .pay-select i {
+			    position: absolute;
+			    bottom: 0;
+			    right: 0;
+			    width: 20px;
+			    height: 20px;
+			    background: url(../images/pay-select-icon.png) no-repeat bottom right;
+			}
+			.order-style{
+				padding: 10px 15px;
+				color: #666666;
+			}
+			.order-main{
+				float: left;
+				padding-left: 10px;
+			}
+			.order-main span{
+				margin-left: 6px;
+				color: red;
 			}
 		</style>
 	</head>
@@ -235,64 +285,24 @@
 		    <h1 class="mui-title">我的订单</h1>
 		</header>
 		<div class="mui-content mui-scroll-wrapper" id="muiContent">
-			<!--<ul class="order-list">
-				<li class="select">未支付</li>
-				<li>待发货</li>
-				<li>待签收</li>
-				<li>已签收</li>
-			</ul>
-			<div class="order-info">
-				<div class="order-img">
-					<img src="../images/store.png" width="20" height="20" alt="" />
-				</div>
-				<div class="mui-table-view-cell white font12">
-					<a class="mui-navigate-right">
-						绿色蔬菜
-					</a>
-				</div>
-				<div class="b-f9f9f9">
-					<div class="mui-card-footer font12">
-						<a class="mui-card-link c-666666">订单号:180324869520</a>
-						<a class="mui-card-link c-333333">未支付</a>
-					</div>
-					<div class="mui-table-view">
-						<div class="mui-table-view-cell mui-media padding-left-0">
-							<a href="javascript:;">
-								<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
-								<div class="mui-media-body">
-									<span class="font14">大白菜/1000g</span>
-									<div class="mui-ellipsis red">
-										<span class="font14">¥2.56</span>
-										<span class="mui-pull-right font12 c-666666">数量:x1</span>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="white font12 order-content">
-					共1件商品 应付款：<span class="font16">¥2.56</span>
-				</div>
-				<div class="order-btn white font12">
-					<input type="reset" value="删除订单">
-					<input type="reset" value="订单失效">
-				</div>
-			</div>-->
 			<div id="slider" class="mui-slider mui-fullscreen" style="margin-top: 28px;">
 				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 					<div class="mui-scroll">
 						<a class="mui-control-item mui-active" href="#item1mobile">
 							未支付
-							<div class="order-number">9</div>
+							<div class="order-number">1</div>
 						</a>
 						<a class="mui-control-item" href="#item2mobile">
 							待发货
+							<div class="order-number">1</div>
 						</a>
 						<a class="mui-control-item" href="#item3mobile">
 							待签收
+							<div class="order-number">1</div>
 						</a>
 						<a class="mui-control-item" href="#item4mobile">
 							已签收
+							<div class="order-number">1</div>
 						</a>
 					</div>
 				</div>
@@ -329,14 +339,43 @@
 														</div>
 													</a>
 												</div>
+												<div class="mui-table-view-cell mui-media padding-left-0">
+													<a href="javascript:;">
+														<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+														<div class="mui-media-body">
+															<span class="font14">大白菜/1000g</span>
+															<div class="mui-ellipsis red">
+																<span class="font14">¥2.56</span>
+																<span class="mui-pull-right font12 c-666666">数量:x1</span>
+															</div>
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+										<div>
+											<div class="order-style">支付方式</div>
+											<div>
+												<div class="pay-method-list mui-row" id="payContent">
+													<div class="pay-vip pay-select  pay-item mui-col-xs-6">
+														<i></i>
+													</div>
+													<div class="pay-weixin pay-item mui-col-xs-6">
+														<i></i>
+													</div>
+													<div class="pay-alipay pay-item mui-col-xs-6">
+														<i></i>
+													</div>
+												</div>
 											</div>
 										</div>
 										<div class="white font12 order-content">
-											共1件商品 应付款：<span class="font16">¥2.56</span>
+											 应付款：<span class="font16">¥2.56</span>
 										</div>
 										<div class="order-btn white font12">
+											<input type="reset" value="立即支付">
 											<input type="reset" value="删除订单">
-											<input type="reset" value="订单失效">
+											<input type="reset" value="订单失效" class="hide">
 										</div>
 									</li>
 								</ul>
@@ -360,7 +399,7 @@
 										<div class="b-f9f9f9">
 											<div class="mui-card-footer font12">
 												<a class="mui-card-link c-666666">订单号:180324869520</a>
-												<a class="mui-card-link c-333333">未支付</a>
+												<a class="mui-card-link c-333333">待发货</a>
 											</div>
 											<div class="mui-table-view">
 												<div class="mui-table-view-cell mui-media padding-left-0">
@@ -378,11 +417,8 @@
 											</div>
 										</div>
 										<div class="white font12 order-content">
-											共1件商品 应付款：<span class="font16">¥2.56</span>
-										</div>
-										<div class="order-btn white font12">
-											<input type="reset" value="删除订单">
-											<input type="reset" value="订单失效">
+											<div class="order-main">支付方式:<span>会员卡支付</span></div>
+											 应付款：<span class="font16">¥2.56</span>
 										</div>
 									</li>
 								</ul>
@@ -406,7 +442,7 @@
 										<div class="b-f9f9f9">
 											<div class="mui-card-footer font12">
 												<a class="mui-card-link c-666666">订单号:180324869520</a>
-												<a class="mui-card-link c-333333">未支付</a>
+												<a class="mui-card-link c-333333">待签收</a>
 											</div>
 											<div class="mui-table-view">
 												<div class="mui-table-view-cell mui-media padding-left-0">
@@ -424,11 +460,8 @@
 											</div>
 										</div>
 										<div class="white font12 order-content">
-											共1件商品 应付款：<span class="font16">¥2.56</span>
-										</div>
-										<div class="order-btn white font12">
-											<input type="reset" value="删除订单">
-											<input type="reset" value="订单失效">
+											<div class="order-main">支付方式:<span>会员卡支付</span></div>
+											 应付款：<span class="font16">¥2.56</span>
 										</div>
 									</li>
 								</ul>
@@ -452,7 +485,7 @@
 										<div class="b-f9f9f9">
 											<div class="mui-card-footer font12">
 												<a class="mui-card-link c-666666">订单号:180324869520</a>
-												<a class="mui-card-link c-333333">未支付</a>
+												<a class="mui-card-link c-333333">已签收</a>
 											</div>
 											<div class="mui-table-view">
 												<div class="mui-table-view-cell mui-media padding-left-0">
@@ -470,11 +503,8 @@
 											</div>
 										</div>
 										<div class="white font12 order-content">
-											共1件商品 应付款：<span class="font16">¥2.56</span>
-										</div>
-										<div class="order-btn white font12">
-											<input type="reset" value="删除订单">
-											<input type="reset" value="订单失效">
+											<div class="order-main">支付方式:<span>会员卡支付</span></div>
+											 应付款：<span class="font16">¥2.56</span>
 										</div>
 									</li>
 								</ul>
@@ -487,99 +517,18 @@
 		
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/comm.js"></script>
-		<script src="../js/mui.pullToRefresh.js"></script>
-		<script src="../js/mui.pullToRefresh.material.js"></script>
 		<script type="text/javascript">
 			mui.init();
 			mui.plusReady(function() {
 				// 设置沉浸式导航
 				COM.biz.setImmersed();
 			});
-			
-			(function($) {
-				//阻尼系数
-				var deceleration = mui.os.ios?0.003:0.0009;
-				$('.mui-scroll-wrapper').scroll({
-					bounce: false,
-					indicators: true, //是否显示滚动条
-					deceleration:deceleration
+			mui("#payContent").on("tap",".pay-item",function(){
+				mui(".pay-item").each(function(i,o){
+					o.classList.remove("pay-select");
 				});
-				$.ready(function() {
-					//循环初始化所有下拉刷新，上拉加载。
-					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
-						$(pullRefreshEl).pullToRefresh({
-							down: {
-								callback: function() {
-									var self = this;
-									setTimeout(function() {
-										var ul = self.element.querySelector('.mui-table-view');
-										ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
-										self.endPullDownToRefresh();
-									}, 1000);
-								}
-							},
-							up: {
-								callback: function() {
-									var self = this;
-									setTimeout(function() {
-										var ul = self.element.querySelector('.mui-table-view');
-										ul.appendChild(createFragment(ul, index, 5));
-										self.endPullUpToRefresh();
-									}, 1000);
-								}
-							}
-						});
-					});
-					var createFragment = function(ul, index, count, reverse) {
-						var length = ul.querySelectorAll('li').length;
-						var fragment = document.createDocumentFragment();
-						var li;
-						for (var i = 0; i < count; i++) {
-							li = document.createElement('li');
-							li.className = 'mui-table-view-cell order-li';
-							//li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
-							li.innerHTML = [
-								'<div class="order-info">',
-									'<div class="order-img">',
-										'<img src="../images/store.png" width="20" height="20" alt="" />',
-									'</div>',
-									'<div class="mui-table-view-cell white font12">',
-										'<a class="mui-navigate-right">绿色蔬菜</a>',
-									'</div>',
-									'<div class="b-f9f9f9">',
-										'<div class="mui-card-footer font12">',
-											'<a class="mui-card-link c-666666">订单号:180324869520</a>',
-											'<a class="mui-card-link c-333333">未支付</a>',
-										'</div>',
-										'<div class="mui-table-view">',
-											'<div class="mui-table-view-cell mui-media padding-left-0">',
-												'<a href="javascript:;">',
-													'<img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">',
-													'<div class="mui-media-body">',
-														'<span class="font14">大白菜/1000g</span>',
-														'<div class="mui-ellipsis red">',
-															'<span class="font14">¥2.56</span>',
-															'<span class="mui-pull-right font12 c-666666">数量:x1</span>',
-														'</div>',
-													'</div>',
-												'</a>',
-											'</div>',
-										'</div>',
-									'</div>',
-								'<div class="white font12 order-content">共1件商品 应付款：',
-									'<span class="font16">¥2.56</span>',
-								'</div>',
-								'<div class="order-btn white font12">',
-									'<input type="reset" value="删除订单">',
-									'<input type="reset" value="订单失效">',
-								'</div>'
-							].join("");
-							fragment.appendChild(li);
-						}
-						return fragment;
-					};
-				});
-			})(mui);
+				this.classList.add("pay-select");
+			})
 		</script>
 	</body>
 

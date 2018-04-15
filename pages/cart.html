@@ -79,7 +79,7 @@
 			    margin-left: 5%;
 			    background: red;
 			    border: 0px;
-			    margin-top: 20px;
+			    margin-top: 5px;
 			    height: 40px;
 			}
 			.mui-table-view-cell{
@@ -124,6 +124,16 @@
 				margin: 0 auto;
 				margin-top: 8px;
 			}
+			.cart-but{
+				height: 50px;
+				width: 100%;
+				position: fixed;
+				background: #FFFFFF;
+				bottom: 0px;
+			}
+			.mui-table-view{
+				margin-bottom: 50px;
+			}
 		</style>
 	</head>
 
@@ -133,7 +143,8 @@
 		    <h1 class="mui-title">购物车</h1>
 		</header>
 		<div class="mui-content" id="muiContent">
-			<div class="empty"  style="display: none;">
+			<!--没有数据时的显示-->
+			<div class="empty hide">
 				<div class="cart-empty-info">
 					<img src="../images/empty.png" alt="" />
 					<div class="font16 c-333333">购物车快饿瘪了TT</div>
@@ -141,6 +152,7 @@
 					<div class="cart-go">走，逛逛去</div>
 				</div>
 			</div>
+			<!--数据列表-->
 			<div class="goods" id="proContentList">
 				<div class="cart-title">
 					<img src="../images/store.png" width="20" height="20" alt="" />
@@ -186,13 +198,37 @@
 								</div>
 							</div>
 						</div>
+						<div class="bor-bottom padd-left-0">
+							<div class="font14 padd-t-6">螺丝椒/250g</div>
+							<div class="margin-t-6">
+								<img class="mui-media-object mui-pull-left show-pro-detail" data-name="螺丝椒/250g" src="../images/muwu.jpg">
+								<div class="mui-media-body">
+									<span class="font14 red">单价：1.49</span>
+									<div class="mui-ellipsis red">
+										<div class="font14">
+											<div class="mui-numbox" data-numbox-min="1" data-numbox-max="9">
+												<button class="mui-btn mui-btn-numbox-minus" type="button" disabled="">-</button>
+												<input id="test" class="mui-input-numbox" type="number" value="1">
+												<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+											</div>
+										</div>
+										<div class="mui-pull-right font12 cart-del">删除</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="cart-total">
+							订单总价：<span class="red">5.54</span>
+						</div>
 					</div>
 				</div>
-				<div class="cart-total">
-					订单总价：<span class="red">5.54</span>
+				
+				
+				<div class="cart-but">
+					<input type="submit" value="去结算" id="account" />
 				</div>
 				
-				<input type="submit" value="去结算" id="account" />
 			</div>
 
 		</div>
@@ -204,6 +240,13 @@
 			mui.plusReady(function () {
 				// 设置沉浸式导航
 				COM.biz.setImmersed();
+				// 去首页分类也挑选商品
+				mui("#muiContent").on("tap",".cart-empty-info .cart-go",function(){
+						//获得主页面的webview
+				    var main = plus.webview.currentWebview().parent();
+				    //触发主页面的gocart事件 
+				    mui.fire(main,'goclass');
+				})
 			});
 			
 			var account = document.getElementById("account");

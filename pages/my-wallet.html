@@ -80,7 +80,7 @@
 		<header class="mui-bar mui-bar-nav" id="header" style="background: #666d71;">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title" style="text-align: left;padding-left: 20px;">我的钱包</h1>
-		    <span style="float: right;"><img src="../images/more.png" style="margin-top: 4px;" /></span>
+		    <a href="#popover" style="float: right;"><img src="../images/more.png" style="margin-top: 4px;"/></a>
 		</header>
 		<div class="mui-content" id="muiContent">
 			<div class="my-header">
@@ -175,6 +175,29 @@
 		            </li>
 		        </ul> 
 			</div>
+			
+			<div id="popover" class="mui-popover mui-popover-action mui-popover-bottom">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href="#">交易记录</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#">支付管理</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#">支付安全</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#">帮助中心</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href="#popover"><b>取消</b></a>
+					</li>
+				</ul>
+			</div>
+		    
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
@@ -190,8 +213,7 @@
 					url:"my-recharge.html",
 					id:"my-recharge.html"
 				})
-			})
-		
+			});
 		</script>
 	</body>
 

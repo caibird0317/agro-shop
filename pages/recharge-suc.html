@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
+		<link rel="stylesheet" href="../css/comm.css" />
+		<style type="text/css">
+			.cart-title{
+				padding: 15px;
+			}
+			.pay-content{
+				margin: 20% 15%;
+				width: 70%;
+				text-align: center;
+			}
+			.pay-date{
+				margin-bottom: 15px;
+    			color: #90c873;
+			}
+			.pay-count span{
+				font-size: 24px;
+			}
+			.pay-code{
+			    color: #9E9E9E;
+			    font-weight: 500;
+				padding: 10px 0px;
+			}
+			.pay-content button.mui-btn{
+				padding: 6px 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="header">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">付款成功</h1>
+		</header>
+		<div class="mui-content" id="muiContent">
+		    <div class="cart-title">
+				<img src="../images/store.png" width="20" height="20" style="margin-top: 2px;">
+				<span>购物车</span>
+			</div>
+			<div class="pay-content">
+				<div class="pay-date">4/15 17:11 收款成功</div>
+				<div class="pay-count">¥<span>200.00</span></div>
+				<div class="pay-code">支付码：5985</div>
+				<button type="button" class="mui-btn mui-btn-success mui-btn-outlined" id="payOver">完成</button>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			var payOver = document.getElementById("payOver");
+			mui.plusReady(function () {
+			    COM.biz.setImmersed();
+			});
+			payOver.addEventListener("tap",function(){
+				mui.openWindow({
+					url:"my-order.html",
+					id:"my-order.html"
+				})
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/comm.css"/>
+		<style type="text/css">
+			.mui-input-row label {
+			    padding: 11px 10px;
+			    font-size: 14px;
+    			color: #666;
+			}
+			.psw-content{
+			    margin: 0 10px;
+			}
+			.psw-content .mui-input-row{
+				border-bottom: 1px solid #cccccf;
+				margin-top: 15px;
+			}
+			.mui-input-password::-webkit-input-placeholder{
+			    font-size: 14px;
+			}
+			.mui-content .reg-submit{
+				width: 90%;
+			    background: red;
+			    border: 0px;
+			    margin: 40px 5%;
+			    height: 40px;
+			}
+			.rest-tips{
+			    margin: 0px;
+			    padding: 0px;
+			    text-decoration: none;
+			    color: #888888;
+			    font-size: 14px;
+			    line-height: 25px;
+			    text-indent: 4px;				
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="header">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">修改会员卡支付密码</h1>
+		</header>
+		<div class="mui-content" id="muiContent">
+			<div class="psw-content">
+				<div class="mui-input-row">
+			        <label>支付密码</label>
+			        <input type="password" class="mui-input-password" id="firstPwd" placeholder="会员卡支付密码">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>确认支付密码</label>
+			        <input type="password" class="mui-input-password" id="confirmPwd" placeholder="确认会员卡支付密码">
+			    </div>
+			</div>
+			<input type="submit" class="reg-submit" id="submitPwd" value="提交">
+			<ul class="rest-tips">
+				说明：
+				<li>
+					1. 如果您忘记或是想修改会员卡支付密码，这里可以进行操作；
+				</li>
+				<li>
+					2. 请确认2次输入密码一致；
+				</li>
+				<li>
+					3. 最后请点击提交按钮；
+				</li>
+			</ul>  
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var submitPwd = document.getElementById("submitPwd");
+			var firstPwd = document.getElementById("firstPwd");
+			var confirmPwd = document.getElementById("confirmPwd")
+			mui.init();
+			mui.plusReady(function () {
+			    COM.biz.setImmersed();
+			});
+			submitPwd.addEventListener("tap",function(){
+				if(!firstPwd.value){
+					
+					mui.toast("支付密码不能为空");
+					return;
+				}
+				if(!COM.validater.isNumber(firstPwd.value) || !COM.validater.isNumber(confirmPwd.value)){
+					
+					mui.toast("支付密码必须是数字");
+					return;
+				}
+				if(firstPwd.value != confirmPwd.value){
+					
+					mui.toast("2次输入的密码必须一致");
+					return;
+				}
+				mui.openWindow({
+					url:"psy-password.html",
+					id:"psy-password.html"
+				})
+			})
+		</script>
+	</body>
+
+</html>
