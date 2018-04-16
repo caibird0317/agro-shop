@@ -273,7 +273,10 @@
 			editAddress.addEventListener('tap',function(){
 				mui.openWindow({
 					url: "address.html",
-					id: "address.html"
+					id: "address.html",
+					extras:{
+						"url": "cart-account"
+					}
 				})
 			});
 			window.addEventListener("changeAdd",function(e){

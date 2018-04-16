@@ -139,7 +139,7 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav" id="header">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
 		    <h1 class="mui-title">购物车</h1>
 		</header>
 		<div class="mui-content" id="muiContent">
@@ -169,9 +169,28 @@
 									<div class="mui-ellipsis red">
 										<div class="font14">
 											<div class="mui-numbox" data-numbox-min="1" data-numbox-max="9">
-												<button class="mui-btn mui-btn-numbox-minus" type="button" disabled="">-</button>
-												<input id="test" class="mui-input-numbox" type="number" value="1">
-												<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+												<button class="mui-btn mui-btn-numbox-minus" data-goodsId="111"  type="button">-</button>
+												<input class="mui-input-numbox" type="number" readonly="readonly">
+												<button class="mui-btn mui-btn-numbox-plus" data-goodsId="111" type="button">+</button>
+											</div>
+										</div>
+										<div class="mui-pull-right font12 cart-del">删除</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="bor-bottom padd-left-0">
+							<div class="font14 padd-t-6">螺丝椒/250g</div>
+							<div class="margin-t-6">
+								<img class="mui-media-object mui-pull-left show-pro-detail" data-name="螺丝椒/250g" src="../images/muwu.jpg">
+								<div class="mui-media-body">
+									<span class="font14 red">单价：1.49</span>
+									<div class="mui-ellipsis red">
+										<div class="font14">
+											<div class="mui-numbox" data-numbox-min="1" data-goodsId="222" data-numbox-max="9">
+												<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+												<input  class="mui-input-numbox" type="number" readonly="">
+												<button class="mui-btn mui-btn-numbox-plus" data-goodsId="222" type="button">+</button>
 											</div>
 										</div>
 										<div class="mui-pull-right font12 cart-del">删除</div>
@@ -188,28 +207,9 @@
 									<div class="mui-ellipsis red">
 										<div class="font14">
 											<div class="mui-numbox" data-numbox-min="1" data-numbox-max="9">
-												<button class="mui-btn mui-btn-numbox-minus" type="button" disabled="">-</button>
-												<input id="test" class="mui-input-numbox" type="number" value="1">
-												<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
-											</div>
-										</div>
-										<div class="mui-pull-right font12 cart-del">删除</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="bor-bottom padd-left-0">
-							<div class="font14 padd-t-6">螺丝椒/250g</div>
-							<div class="margin-t-6">
-								<img class="mui-media-object mui-pull-left show-pro-detail" data-name="螺丝椒/250g" src="../images/muwu.jpg">
-								<div class="mui-media-body">
-									<span class="font14 red">单价：1.49</span>
-									<div class="mui-ellipsis red">
-										<div class="font14">
-											<div class="mui-numbox" data-numbox-min="1" data-numbox-max="9">
-												<button class="mui-btn mui-btn-numbox-minus" type="button" disabled="">-</button>
-												<input id="test" class="mui-input-numbox" type="number" value="1">
-												<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+												<button class="mui-btn mui-btn-numbox-minus" type="button" data-goodsId="333">-</button>
+												<input  class="mui-input-numbox" type="number" readonly="" >
+												<button class="mui-btn mui-btn-numbox-plus" data-goodsId="333" type="button">+</button>
 											</div>
 										</div>
 										<div class="mui-pull-right font12 cart-del">删除</div>

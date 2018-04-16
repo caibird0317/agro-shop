@@ -4,12 +4,14 @@ var classMock = {
 			"id": "class1",
 			"childlist": [{
 					"url": "http://wx.qck58.com/productpic/001.jpg",
+					"id": "111",
 					"name": "土豆",
 					"unit": "¥2.50/500g",
 					"less": "0"
 				},
 				{
 					"url": "http://wx.qck58.com/productpic/002.jpg",
+					"id": "222",
 					"name": "土豆",
 					"unit": "¥2.50/500g",
 					"less": "1000"
@@ -17,60 +19,70 @@ var classMock = {
 				{
 					"url": "http://wx.qck58.com/productpic/003.jpg",
 					"name": "土豆",
+					"id": "333",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "http://wx.qck58.com/productpic/005.jpg",
 					"name": "土豆",
+					"id": "444",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "http://wx.qck58.com/productpic/006.jpg",
 					"name": "土豆",
+					"id": "555",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "http://wx.qck58.com/productpic/008.jpg",
 					"name": "土豆",
+					"id": "666",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "http://wx.qck58.com/productpic/009.jpg",
 					"name": "土豆",
+					"id": "7",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "http://wx.qck58.com/productpic/010.jpg",
 					"name": "土豆",
+					"id": "8",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "http://wx.qck58.com/productpic/011.jpg",
 					"name": "土豆",
+					"id": "9",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "http://wx.qck58.com/productpic/012.jpg",
 					"name": "土豆",
+					"id": "10",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "http://wx.qck58.com/productpic/013.jpg",
 					"name": "土豆",
+					"id": "11",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "http://wx.qck58.com/productpic/014.jpg",
 					"name": "土豆",
+					"id": "12",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				}
@@ -82,90 +94,105 @@ var classMock = {
 			"childlist": [{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "13",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "14",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "15",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "16",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "17",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "18",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "19",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "20",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "21",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "22",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "23",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "24",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "25",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "26",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				},
 				{
 					"url": "../images/logo.png",
 					"name": "萝卜",
+					"id": "27",
 					"unit": "¥2.50/500g",
 					"less": "1000"
 				}
@@ -177,6 +204,7 @@ var classMock = {
 			"childlist": [{
 				"url": "../images/free.png",
 				"name": "土豆",
+				"id": "28",
 				"unit": "¥2.50/500g",
 				"less": "1000"
 			}]
@@ -190,12 +218,14 @@ var searchMock = [
 	{
 		"url": "http://wx.qck58.com/productpic/001.jpg",
 		"name": "土豆",
+		"id": "29",
 		"unit": "¥2.50/500g",
 		"less": "22"
 	},
 	{
 		"url": "http://wx.qck58.com/productpic/002.jpg",
-		"name": "土豆",
+		"name": "土豆",	
+		"id": "30",
 		"unit": "¥2.50/500g",
 		"less": "1000"
 	}

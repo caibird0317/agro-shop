@@ -204,6 +204,20 @@
 					"pages/address.html"
 				],
 				"priority": 0
+			},
+			"pages/add-address.html": {
+				"resources": [],
+				"refer": [
+					"pages/cart-account.html"
+				],
+				"priority": 0
+			},
+			"pages/my-order.html": {
+				"resources": [],
+				"refer": [
+					"pages/pickup-code.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {

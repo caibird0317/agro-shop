@@ -273,6 +273,12 @@
 			}
 			.order-main span{
 				margin-left: 6px;
+				color: #90c873;
+			}
+			.mui-click{
+				padding-left: 2px;
+			}
+			.order-card{
 				color: red;
 			}
 		</style>
@@ -373,7 +379,7 @@
 											 应付款：<span class="font16">¥2.56</span>
 										</div>
 										<div class="order-btn white font12">
-											<input type="reset" value="立即支付">
+											<input type="reset" class="pay-now" value="立即支付">
 											<input type="reset" value="删除订单">
 											<input type="reset" value="订单失效" class="hide">
 										</div>
@@ -442,7 +448,7 @@
 										<div class="b-f9f9f9">
 											<div class="mui-card-footer font12">
 												<a class="mui-card-link c-666666">订单号:180324869520</a>
-												<a class="mui-card-link c-333333">待签收</a>
+												<a class="mui-card-link c-333333">已支付待签收</a>
 											</div>
 											<div class="mui-table-view">
 												<div class="mui-table-view-cell mui-media padding-left-0">
@@ -462,6 +468,13 @@
 										<div class="white font12 order-content">
 											<div class="order-main">支付方式:<span>会员卡支付</span></div>
 											 应付款：<span class="font16">¥2.56</span>
+										</div>
+										<div class="white font12 order-content">
+											<div class="order-main mui-click pickup-code"><span>点击我获取提货二维码</span></div>
+											<div class="order-card pickup-code">门禁码：03605249</div>
+										</div>
+										<div class="white font12 order-content">
+											<div class="order-main">保鲜柜号:<span>(1)号柜</span></div>
 										</div>
 									</li>
 								</ul>
@@ -523,12 +536,28 @@
 				// 设置沉浸式导航
 				COM.biz.setImmersed();
 			});
+			// 不同的支付方式选择
 			mui("#payContent").on("tap",".pay-item",function(){
 				mui(".pay-item").each(function(i,o){
 					o.classList.remove("pay-select");
 				});
 				this.classList.add("pay-select");
 			})
+			
+			//我的提货码
+			mui("#muiContent").on('tap',".pickup-code",function(){
+				mui.openWindow({
+					url: "pickup-code.html",
+					id: "pickup-code.html"
+				})
+			});
+			// 立即支付
+			mui("#muiContent").on('tap',".pay-now",function(){
+				mui.openWindow({
+					url: "psy-password.html",
+					id: "psy-password.html"
+				})
+			});
 		</script>
 	</body>
 

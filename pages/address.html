@@ -27,12 +27,6 @@
 			.border-b-1{
 				border-bottom: 1px solid #e5e5e5;
 			}
-			.margin-b-70{
-				margin-bottom: 70px;
-			}
-			.margin-b-6{
-				margin-bottom: 6px;
-			}
 			.bg-white{
 				background: #FFFFFF;
 			}
@@ -85,6 +79,14 @@
 				line-height: 40px;
 				text-align: center;
 			}
+			.address-container{
+				background-color: #FFFFFF;
+				margin-bottom: 6px;
+			}
+			.default-address{
+				position: relative;
+				width: 50%;
+			}
 		</style>
 	</head>
 
@@ -98,80 +100,111 @@
 		    </span>
 		</header>
 		<div class="mui-content margin-b-70" id="muiContent">
-			<div class="bg-white margin-b-6">
+			<!-- JS动态构建-->
+			<div class="address-container">
 				<div class="border-b-1">
 					<div class="address-info">
 						<div class="address-height">
-							<span class="address-name" id="shouName">李四</span>
+							<span class="address-name">张三</span>
 							<span class="address-number">1888888888</span>
 						</div>
 						<div class="address-dz">湖南省长沙市芙蓉区</div>
 					</div>
 				</div>
 				<div class="mui-input-row mui-radio mui-left font12">
-					<div data-name="李四" style="position: relative;width: 50%;">
+					<div class="default-address" data-name="张三">
+						<label>默认地址</label>
+						<input name="radio1" type="radio" checked="">
+					</div>
+					<div class="address-editor" data-id="zhangsan">
+						<img src="../images/store.png" width="20" height="20" />
+						<span class="editAddress">编辑</span>
+					</div>
+					<div class="address-del" data-id="zhangsan">
+						<img src="../images/store.png" width="20" height="20" />
+						<span>删除</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="address-container">
+				<div class="border-b-1">
+					<div class="address-info">
+						<div class="address-height">
+							<span class="address-name">李四</span>
+							<span class="address-number">1888888888</span>
+						</div>
+						<div class="address-dz">湖南省长沙市芙蓉区</div>
+					</div>
+				</div>
+				<div class="mui-input-row mui-radio mui-left font12">
+					<div class="default-address" data-name="李四">
 						<label>默认地址</label>
 						<input name="radio1" type="radio">
 					</div>
-					<div class="address-editor">
+					<div class="address-editor" data-id="lisi">
 						<img src="../images/store.png" width="20" height="20" />
 						<span class="editAddress">编辑</span>
 					</div>
-					<div class="address-del">
+					<div class="address-del" data-id="lisi">
 						<img src="../images/store.png" width="20" height="20" />
 						<span>删除</span>
 					</div>
 				</div>
 			</div>
 			
-			<div class="bg-white margin-b-6">
+			<div class="address-container">
 				<div class="border-b-1">
 					<div class="address-info">
 						<div class="address-height">
-							<span class="address-name">张三</span>
+							<span class="address-name">王五</span>
 							<span class="address-number">1888888888</span>
 						</div>
 						<div class="address-dz">湖南省长沙市芙蓉区</div>
 					</div>
 				</div>
 				<div class="mui-input-row mui-radio mui-left font12">
-					<label>默认地址</label>
-					<input name="radio1" type="radio">
-					<div class="address-editor">
+					<div class="default-address" data-name="王五">
+						<label>默认地址</label>
+						<input name="radio1" type="radio">
+					</div>
+					<div class="address-editor" data-id="wangwu">
 						<img src="../images/store.png" width="20" height="20" />
 						<span class="editAddress">编辑</span>
 					</div>
-					<div class="address-del">
+					<div class="address-del" data-id="wangwu">
 						<img src="../images/store.png" width="20" height="20" />
 						<span>删除</span>
 					</div>
 				</div>
 			</div>
 			
-			<div class="bg-white margin-b-6">
+			<div class="address-container">
 				<div class="border-b-1">
 					<div class="address-info">
 						<div class="address-height">
-							<span class="address-name">张三</span>
+							<span class="address-name">赵六</span>
 							<span class="address-number">1888888888</span>
 						</div>
 						<div class="address-dz">湖南省长沙市芙蓉区</div>
 					</div>
 				</div>
 				<div class="mui-input-row mui-radio mui-left font12">
-					<label>默认地址</label>
-					<input name="radio1" type="radio">
-					<div class="address-editor">
+					<div class="default-address" data-name="赵六">
+						<label>默认地址</label>
+						<input name="radio1" type="radio">
+					</div>
+					<div class="address-editor" data-id="zhaoliu">
 						<img src="../images/store.png" width="20" height="20" />
 						<span class="editAddress">编辑</span>
 					</div>
-					<div class="address-del">
+					<div class="address-del" data-id="zhaoliu">
 						<img src="../images/store.png" width="20" height="20" />
 						<span>删除</span>
 					</div>
 				</div>
 			</div>
-			
+			<!--end JS动态构建-->
 			<div class="address-footer">
 				<div class="address-add" id="addAddress">
 					+ 新建地址
@@ -183,22 +216,27 @@
 		<script src="../js/comm.js"></script>
 		<script type="text/javascript">
 			var confirmAddress = document.getElementById("confirmAddress");
-			var shouName = document.getElementById("shouName").innerHTML;
+			var addAddress = document.getElementById("addAddress");
 			mui.plusReady(function() {
 				// 设置沉浸式导航
 				COM.biz.setImmersed();
+				var self = plus.webview.currentWebview();
+				var urlSource = self["url"];
 				var lastPage = plus.webview.getWebviewById("cart-account.html");
 				confirmAddress.addEventListener('tap',function(){
-					mui.fire(lastPage,"changeAdd",{"shouName":shouName});
-					mui.openWindow({
-						url: "cart-account.html",
-						id: "cart-account.html",
-					})
+					if(urlSource == "cart-account"){
+						mui.fire(lastPage,"changeAdd",{"shouName":"shouName"});
+						mui.openWindow({
+							url: "cart-account.html",
+							id: "cart-account.html",
+						})
+					}else{
+						// 关闭当前页面
+						plus.webview.close(plus.webview.currentWebview().id)
+					}
 				});
 			});
 			
-			var addAddress = document.getElementById("addAddress");
-			var editAddress = document.getElementsByClassName("editAddress")[0];
 			
 			//添加地址
 			addAddress.addEventListener('tap',function(){
@@ -208,11 +246,21 @@
 				})
 			});
 			//编辑地址
-			editAddress.addEventListener('tap',function(){
+			mui("#muiContent").on('tap',".address-editor",function(){
+				var addressId = this.getAttribute("data-id");
 				mui.openWindow({
 					url: "add-address.html",
-					id: "add-address.html"
+					id: "add-address.html",
+					extras:{
+						"addressId": addressId
+					}
 				})
+			});
+			// 删除地址
+			mui("#muiContent").on('tap',".address-del",function(){
+				var addressId = this.getAttribute("data-id");
+				//	TODO 异步删除数据
+				mui.toast("删除地址"+addressId);
 			});
 		</script>
 	</body>

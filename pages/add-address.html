@@ -98,7 +98,7 @@
 		
 		<header class="mui-bar mui-bar-nav" id="header">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">新建收货地址</h1>
+		    <h1 class="mui-title" id="headerTitle">新建收货地址</h1>
 		</header>
 		<div class="mui-content margin-b-70" id="muiContent">
 			<div class="add-layel">
@@ -145,7 +145,8 @@
 			var addressVal = document.getElementById("addressVal");
 			// 保存地址
 			var save = document.getElementById("save");
-			
+			// 首页标题
+			var headerTitle = document.getElementById("headerTitle");
 			// 构建三层地理路径位置
 			var cityPicker = new mui.PopPicker({
 				layer: 3
@@ -154,21 +155,30 @@
 			mui.plusReady(function() {
 				// 设置沉浸式导航
 				COM.biz.setImmersed();
+				var self = plus.webview.currentWebview();
+				var addressId = self["addressId"];
+				if(addressId.length){
+					headerTitle.innerHTML = "编辑收货地址";
+					initPage(addressId);
+				};
+				
+				//保存点击
+				save.addEventListener('tap',function(){
+					
+					// 关闭当前页面
+					plus.webview.close(plus.webview.currentWebview().id)
+				});
 			});
 			cityPicker.setData(cityData3);
-			
 			addressDetail.addEventListener('tap',function(){
 				cityPicker.show(function(items) {
 					addressVal.value = items[0]['text'] +  items[1]['text'] + items[2]['text'];
 				})
 			});
-			//保存点击
-			save.addEventListener('tap',function(){
-				mui.openWindow({
-					url: "cart-account.html",
-					id: "cart-account.html",
-				})
-			});
+			// 根据id获取相关信息
+			function initPage(id){
+				
+			}
 		</script>
 	</body>
 

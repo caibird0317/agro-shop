@@ -56,7 +56,7 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav" id="header">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
 		    <h1 class="mui-title">个人中心</h1>
 		</header>
 		<div class="mui-content mui-scroll-wrapper" id="muiContent">
@@ -135,12 +135,6 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/comm.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			
-			mui.plusReady(function() {
-				// 设置沉浸式导航
-				COM.biz.setImmersed();
-			});
-			
 			var myWallet = document.getElementById("myWallet");
 			var myOrder = document.getElementById("myOrder");
 			var myCart = document.getElementById("myCart");
@@ -151,6 +145,19 @@
 			var call = document.getElementById("call");
 			var myConsume = document.getElementById("myConsume");
 			var myCoupons = document.getElementById("myCoupons");
+			mui.init();
+			mui.plusReady(function() {
+				// 设置沉浸式导航
+				COM.biz.setImmersed();
+				
+				//购物车
+				myCart.addEventListener('tap',function(){
+					//获得主页面的webview
+				    var main = plus.webview.currentWebview().parent();
+				    //触发主页面的gocart事件 
+				    mui.fire(main,'gocart');
+				});
+			});
 			
 			//我的钱包
 			myWallet.addEventListener('tap',function(){
@@ -171,13 +178,6 @@
 				mui.openWindow({
 					url: "my-order.html",
 					id: "my-order.html"
-				})
-			});
-			//购物车
-			myCart.addEventListener('tap',function(){
-				mui.openWindow({
-					url: "cart.html",
-					id: "cart.html"
 				})
 			});
 			//收件人信息
