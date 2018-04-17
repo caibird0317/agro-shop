@@ -11,13 +11,7 @@ mui("body").on("tap",".mask-search-box",function(){
 	document.getElementById("serchContainer").classList.add("hide");
 })
 
-// 数字加
-mui("body").on("tap",".mui-numbox-btn-plus",function(){
+mui("body").on("change",".mui-numbox-input",function(){
 	var goodsId = this.getAttribute('data-goodsId');
-	mui.toast("点击了加  商品id:"+goodsId);
+	mui.toast("点击了  商品id:"+goodsId+"当前数量： "+this.value);
 });
-// 数字减
-mui("body").on("tap",".mui-numbox-btn-minus",function(){
-	var goodsId = this.getAttribute('data-goodsId');
-	mui.toast("点击了减  商品id:"+goodsId);
-})

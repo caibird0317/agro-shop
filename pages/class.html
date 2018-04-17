@@ -258,9 +258,9 @@
 										'</div>',
 										'<div class="mui-col-sm-8" style="margin:0 auto;">',
 											'<div class="mui-numbox" data-numbox-step="1" data-numbox-min="0" data-numbox-max="', o.less,'">',
-												'<button class="mui-btn mui-numbox-btn-minus" type="button" data-type="reduce" data-id="',o.id,'"><a href="javascript:reduceNumber(',o.id,')">-</a></button>',
-												'<input class="mui-numbox-input font-14" type="number" readonly="readonly"/>',
-												'<button class="mui-btn mui-numbox-btn-plus" type="button" data-type="add" data-id="',o.id,'"><a href="javascript:addNumber(',o.id,')">+</a></button>',
+												'<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>',
+												'<input class="mui-numbox-input font-14" type="number" data-goodsId="',o.id,'" readonly="readonly"/>',
+												'<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>',
 											'</div>',
 										'</div>',
 									'</div>',
@@ -309,9 +309,9 @@
 									'</div>',
 									'<div class="mui-col-sm-8" style="margin:0 auto;">',
 										'<div class="mui-numbox" data-numbox-step="1" data-numbox-min="0" data-numbox-max="', o.less,'">',
-											'<button class="mui-btn mui-numbox-btn-minus" type="button" data-type="reduce" data-id="',o.id,'"><a href="javascript:redduceNumber(',o.id,')">-</a></button>',
-											'<input class="mui-numbox-input font-14" type="number" readonly="readonly" />',
-											'<button class="mui-btn mui-numbox-btn-plus" type="button" data-type="reduce" data-id="',o.id,'"><a href="javascript:addNumber(',o.id,')">+</a></button>',
+											'<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>',
+											'<input class="mui-numbox-input font-14" type="number" data-goodsId="',o.id,'" readonly="readonly" />',
+											'<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>',
 										'</div>',
 									'</div>',
 								'</div>',
@@ -357,6 +357,10 @@
 			})
 			// 点击确认搜索
 			searchBtn.addEventListener("tap",function(){
+				if(!proInputSearch.value){					
+					mui.toast("请输入搜索内容");
+					return;
+				}
 				// 隐藏购物状态
 				proCartBar.classList.remove("hide")
 				// 显示搜索和遮罩
