@@ -12,6 +12,20 @@ mui("body").on("tap",".mask-search-box",function(){
 })
 
 mui("body").on("change",".mui-numbox-input",function(){
-	var goodsId = this.getAttribute('data-goodsId');
-	mui.toast("点击了  商品id:"+goodsId+"当前数量： "+this.value);
+	var totalChose = document.getElementById("totalChose");
+	var tatalNumber = totalChose.innerText;
+	var dataNUmber = Number(this.getAttribute("data-number"));
+	var currentNumber = Number(this.value);
+	if(currentNumber>dataNUmber){
+		tatalNumber++
+		totalChose.innerText = tatalNumber;
+//		console.log("加");
+	}else if(currentNumber<dataNUmber){
+		tatalNumber--
+		totalChose.innerText = tatalNumber;
+//		console.log("减");
+	}else{
+		console.log("数据达到限制，没有变化")
+	}
+	this.setAttribute("data-number",currentNumber)
 });
